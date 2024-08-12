@@ -1,0 +1,32 @@
+[
+    {
+        "_id": "643010e0f5a7e52ce1e8fa65",
+        "name": "Jane Doe",
+        "details": "The burger has a great balance of textures. The soft, toasted bun holds everything together nicely without getting soggy. The patty is tender and juicy, while the fresh vegetables add a crisp bite",
+        "rating": 3
+    },
+    {
+        "_id": "643010f9f5a7e52ce1e8fa66",
+        "name": "opu",
+        "details": "This Classic Cheeseburger is a must-try for burger enthusiasts. It’s a well-rounded, satisfying meal that hits all the right notes in terms of flavor, texture, and presentation",
+        "rating": 2
+    },
+    {
+        "_id": "6430110af5a7e52ce1e8fa67",
+        "name": "MJ Doe",
+        "details": "The burger is served with a generous portion of golden, crispy fries on the side. It’s neatly assembled, making it visually appealing and easy to eat.",
+        "rating": 5
+    },
+    {
+        "_id": "64301123f5a7e52ce1e8fa68",
+        "name": "Sarah Smith",
+        "details": "The Four Cheese Mac and Cheese is a delightful blend of rich, creamy flavors. The combination of sharp cheddar, mozzarella, parmesan, and gouda creates a complex and satisfying taste. Each bite offers a perfect balance of tangy and savory notes, making it a cheese lover’s dream.",
+        "rating": 4
+    },
+    {
+        "_id": "6430113af5a7e52ce1e8fa69",
+        "name": "Robert Johnson",
+        "details": "The dish has a wonderfully creamy texture, with the cheese sauce coating every piece of pasta evenly. The top layer is baked to a golden brown, adding a slight crunch that contrasts nicely with the smooth, velvety sauce.",
+        "rating": 5
+    }
+]
