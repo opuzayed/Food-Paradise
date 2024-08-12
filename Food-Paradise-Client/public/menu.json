@@ -23,22 +23,7 @@
         "category": "popular",
         "price": 14.5
     },
-    {
-        "_id": "642c155b2c4774f05c36ee7c",
-        "name": "Waffle Fries Chick-fil-A",
-        "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
-        "image": "https://www.chick-fil-a.com/menu/sides/chick-fil-a-waffle-potato-fries",
-        "category": "popular",
-        "price": 14.5
-    },
-    {
-        "_id": "642c155b2c4774f05c36ee7c",
-        "name": "Double-Double In-N-Out",
-        "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
-        "image": "https://topsecretrecipes.com/foodhackerblog/in-n-out-burger-double-double/",
-        "category": "popular",
-        "price": 14.5
-    },
+    
     {
         "_id": "642c155b2c4774f05c36ee88",
         "name": "Escalope de Veau",
@@ -51,7 +36,7 @@
         "_id": "642c155b2c4774f05c36ee7a",
         "name": "Roast Duck Breast",
         "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
-        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-5-370x247.jpg",
+        "image": "https://media.istockphoto.com/id/1202365716/photo/roasted-duck-breast-with-the-addition-of-aromatic-herbs-on-a-wooden-board.jpg?s=612x612&w=0&k=20&c=jwfB2Ffj0i2HPhZMk1hBNsPPTj-hYTmxWSXxgFNstsw=",
         "category": "popular",
         "price": 20.5
     },
