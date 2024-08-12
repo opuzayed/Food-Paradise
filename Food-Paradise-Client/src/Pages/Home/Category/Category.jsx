@@ -23,14 +23,33 @@ const Category = () => {
                 modules={[Pagination]}
                 className="mySwiper mb-10"
             >
-                <SwiperSlide><img src={slide1} alt="" /></SwiperSlide>
-                <SwiperSlide><img src={slide2} alt="" /></SwiperSlide>
-                <SwiperSlide><img src={slide3} alt="" /></SwiperSlide>
-                <SwiperSlide><img src={slide4} alt="" /></SwiperSlide>
-                <SwiperSlide><img src={slide5} alt="" /></SwiperSlide>
-                <SwiperSlide><img src={slide6} alt="" /></SwiperSlide>
-                <SwiperSlide><img src={slide7} alt="" /></SwiperSlide>
-                <SwiperSlide><img src={slide8} alt="" /></SwiperSlide>
+                <SwiperSlide><img src={slide1} alt="" />
+                    <h4 className='text-3xl uppercase text-center text-white -mt-14 font-bold'>Salad</h4>
+                </SwiperSlide>
+                <SwiperSlide><img src={slide2} alt="" />
+                    <h4 className='text-3xl uppercase text-center text-white -mt-14 font-bold'>Pizza</h4>
+                </SwiperSlide>
+                <SwiperSlide><img src={slide3} alt="" />
+                    <h4 className='text-3xl uppercase text-center text-white -mt-14 font-bold'>Soup</h4>
+                </SwiperSlide>
+                <SwiperSlide><img src={slide4} alt="" />
+                    <h4 className='text-3xl uppercase text-center text-white -mt-14 font-bold'>Dessert</h4>
+                </SwiperSlide>
+                <SwiperSlide><img src={slide5} alt="" />
+                    <h4 className='text-3xl uppercase text-center text-white -mt-14 font-bold'>Haleem</h4>
+                </SwiperSlide>
+                <SwiperSlide><img src={slide6} alt="" />
+                    <h4 className='text-3xl uppercase text-center text-white -mt-14 font-bold'>Grill</h4>
+                </SwiperSlide>
+                <SwiperSlide><img src={slide7} alt="" />
+                    <h4 className='text-3xl uppercase text-center text-white -mt-14 font-bold'>Seekh Kebab</h4>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={slide8} alt="" />
+                    <h4 className='text-3xl uppercase text-center text-white -mt-14 font-bold'>
+                        Kacchi Biryani
+                    </h4>
+                </SwiperSlide>
 
             </Swiper>
         </>
