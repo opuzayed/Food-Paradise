@@ -1,10 +1,11 @@
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 
 const Featured = () => {
     return (
-        <div>
-            
-        </div>
+        <section>
+            <SectionTitle subHeading={'should try'} heading={"Chef Recommended"}></SectionTitle>
+        </section>
     );
 };
 
