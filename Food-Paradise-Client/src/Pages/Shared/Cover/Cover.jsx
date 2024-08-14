@@ -16,7 +16,7 @@ const Cover = ({ img, title, shortDes }) => {
                 <div className="hero-content text-neutral-content text-center">
                     <div className="max-w-md">
                         <h1 className="mb-5 text-5xl font-bold uppercase text-white">{title}</h1>
-                        <p className="mb-5 font-bold">
+                        <p className="mb-5 font-bold text-slate-200">
                             {shortDes}
                         </p>
 
