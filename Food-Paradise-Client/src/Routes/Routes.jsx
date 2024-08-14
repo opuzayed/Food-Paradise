@@ -18,6 +18,10 @@ import Menu from "../Pages/Menu/Menu/Menu";
         {
           path:"menu",
           element:<Menu></Menu>
+        },
+        {
+          path:'order',
+          element:<Order></Order>
         }
       ]
     },
