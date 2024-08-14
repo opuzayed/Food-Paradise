@@ -8,7 +8,7 @@ const Menu = () => {
            <Helmet>
                 <title>Food Paradise | Menu</title>
             </Helmet>
-            <Cover img={menuImg}></Cover>
+            <Cover img={menuImg} title={"Our Menu"}></Cover>
         </div>
     );
 };
