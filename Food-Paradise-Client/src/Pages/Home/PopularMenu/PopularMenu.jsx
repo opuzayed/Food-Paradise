@@ -4,17 +4,10 @@ import MenuItem from '../../Shared/MenuItem/MenuItem';
 import useMenu from '../../../hooks/useMenu';
 
 const PopularMenu = () => {
+    
     const [menu] = useMenu();
     const popularItem = menu.filter(item => item.category === 'popular');
-    // const [menu, setMenu] = useState([]);
-    // useEffect(()=>{
-    //     fetch('menu.json')
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         const popularItems = data.filter(item => item.category === 'popular')
-    //         setMenu(popularItems)
-    //     })
-    // }, [])
+    
     return (
         <section className='mb-20 flex flex-col items-center'>
             <SectionTitle subHeading={'check it out'} heading={'From Our Menu'}></SectionTitle>
