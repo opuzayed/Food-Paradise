@@ -3,7 +3,7 @@ import React from 'react';
 const Cover = ({img}) => {
     return (
         <div
-        className="hero min-h-screen"
+        className="hero h-[700px] mb-20"
         style={{
           backgroundImage: `url(${img})`,
         }}>
