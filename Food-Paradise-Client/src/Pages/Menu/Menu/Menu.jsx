@@ -4,6 +4,7 @@ import Cover from '../../Shared/Cover/Cover';
 import menuImg from '../../../assets/menu/imagebg.png';
 import useMenu from '../../../hooks/useMenu';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
+import MenuCategory from '../MenuCategory/MenuCategory';
 
 const Menu = () => {
 
@@ -22,6 +23,7 @@ const Menu = () => {
             </Helmet>
             <Cover img={menuImg} title={"Our Menu"} shortDes={"Would You Like To Try A Dish?"}></Cover>
             <SectionTitle subHeading={"Don't miss"} heading={"Today's Offer"}></SectionTitle>
+            <MenuCategory items={offeredItems}></MenuCategory>
         </div>
     );
 };
