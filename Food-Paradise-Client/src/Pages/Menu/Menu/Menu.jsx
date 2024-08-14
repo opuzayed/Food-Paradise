@@ -20,7 +20,7 @@ const Menu = () => {
            <Helmet>
                 <title>Food Paradise | Menu</title>
             </Helmet>
-            <Cover img={menuImg} title={"Our Menu"}></Cover>
+            <Cover img={menuImg} title={"Our Menu"} shortDes={"Would You Like To Try A Dish?"}></Cover>
             <SectionTitle subHeading={"Don't miss"} heading={"Today's Offer"}></SectionTitle>
         </div>
     );
