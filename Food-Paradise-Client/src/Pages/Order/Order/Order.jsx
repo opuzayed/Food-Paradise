@@ -19,9 +19,9 @@ const Order = () => {
     return (
         <>
             <Cover img={orderImg} title={"Order Food"} shortDes={"Would You Like To Try Our Dish? Order Your Favourite Food, which is available right now, also enjoy discount for every item."} className="mb-20"></Cover>
-            <div className='mx-auto text-center md:w-4/12'>
+            <div className='mb-20'>
                 <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-                    <TabList>
+                    <TabList  className='text-center font-bold text-2xl text-sky-600'>
                         <Tab>Salad</Tab>
                         <Tab>Pizza</Tab>
                         <Tab>Soup</Tab>
