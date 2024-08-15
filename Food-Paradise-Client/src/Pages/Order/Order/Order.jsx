@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import orderImg from '../../../assets/shop/neworderbg.jpg';
 import Cover from '../../Shared/Cover/Cover';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -14,9 +14,9 @@ const Order = () => {
     const { category } = useParams();
     const initialIndex = categories.indexOf(category);
     const [tabIndex, setTabIndex] = useState(initialIndex);
-
     const [menu] = useMenu();
 
+    
 
 
     const saladItems = menu.filter(item => item.category === 'salad');
@@ -27,9 +27,9 @@ const Order = () => {
 
     return (
         <>
-        <Helmet>
-            <title>Food-Paradise | Order Food</title>
-        </Helmet>
+            <Helmet>
+                <title>Food-Paradise | Order Food</title>
+            </Helmet>
             <Cover img={orderImg} title={"Order Food"} shortDes={"Would You Like To Try Our Dish? Order Your Favourite Food, which is available right now, also enjoy discount for every item."} className="mb-20"></Cover>
             <div className='mb-20'>
                 <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
