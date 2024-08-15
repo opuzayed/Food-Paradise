@@ -11,7 +11,9 @@ const MenuCategory = ({ items, title, img, shortDes }) => {
                     items.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
                 }
             </div>
+            <button className="btn btn-outline btn-info uppercase border-0 border-b-4 mt-2 mb-8 block mx-auto">order faviourite food</button>
         </div>
+        
     );
 };
 

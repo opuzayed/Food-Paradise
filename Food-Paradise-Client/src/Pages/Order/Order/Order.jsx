@@ -4,7 +4,6 @@ import Cover from '../../Shared/Cover/Cover';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import useMenu from '../../../hooks/useMenu';
-import FoodCard from '../../../Components/FoodCard/FoodCard';
 import OrderTab from '../OrderTab/OrderTab';
 
 const Order = () => {
