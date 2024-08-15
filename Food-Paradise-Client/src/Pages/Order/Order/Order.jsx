@@ -34,10 +34,18 @@ const Order = () => {
                     <TabPanel>
                         <OrderTab items={saladItems}></OrderTab>
                     </TabPanel>
-                    <TabPanel></TabPanel>
-                    <TabPanel></TabPanel>
-                    <TabPanel></TabPanel>
-                    <TabPanel></TabPanel>
+                    <TabPanel>
+                        <OrderTab items={pizzaItems}></OrderTab>
+                    </TabPanel>
+                    <TabPanel>
+                        <OrderTab items={soupItems}></OrderTab>
+                    </TabPanel>
+                    <TabPanel>
+                        <OrderTab items={dessertItems}></OrderTab>
+                    </TabPanel>
+                    <TabPanel>
+                        <OrderTab items={drinksItems}></OrderTab>
+                    </TabPanel>
 
                 </Tabs>
             </div>
