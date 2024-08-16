@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import orderImg from '../../../assets/shop/neworderbg.jpg';
 import Cover from '../../Shared/Cover/Cover';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -13,10 +13,15 @@ const Order = () => {
 
     const categories = ['Salad', 'Pizza', 'Soup', 'Dessert', 'Drinks'];
     const { category } = useParams();
-    const initialIndex = categories.indexOf(category);
+    // const initialIndex = categories.indexOf(category);
+    const [tabIndex, setTabIndex] = useState(0);
+    useEffect(() => {
+        const initialIndex = categories.indexOf(category.charAt(0).toUpperCase() + category.slice(1));
+        if (initialIndex !== -1) {
+          setTabIndex(initialIndex);
+        }
+      }, [category]);
 
-
-    const [tabIndex, setTabIndex] = useState(initialIndex);
     const [menu] = useMenu();
 
 

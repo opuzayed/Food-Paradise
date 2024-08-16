@@ -13,9 +13,11 @@ const MenuCategory = ({ items, title, img, shortDes }) => {
                 }
             </div>
             
-            <Link to={`/order/${title}`}>
+            {
+                title && shortDes && <Link to={`/order/${title}`}>
                 <button className="btn btn-outline btn-info uppercase border-0 border-b-4 mb-16 block mx-auto">order your faviourite {title}</button>
             </Link>
+            }
         </div>
 
     );
