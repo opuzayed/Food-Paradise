@@ -11,6 +11,7 @@ import slide6 from '../../../assets/home/slide6.jpg';
 import slide7 from '../../../assets/home/slide7.jpg';
 import slide8 from '../../../assets/home/slide8.jpg';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
+import SliderContent from './CategoryContent';
 const Category = () => {
     return (
         <>
@@ -25,30 +26,29 @@ const Category = () => {
                 modules={[Pagination]}
                 className="mySwiper mb-20"
             >
-                <SwiperSlide><img src={slide1} alt="" />
-                    <h4 className='text-3xl uppercase text-center text-white -mt-16 font-bold'>Salad</h4>
-                </SwiperSlide>
-                <SwiperSlide><img src={slide2} alt="" />
-                    <h4 className='text-3xl uppercase text-center text-white -mt-16 font-bold'>Pizza</h4>
-                </SwiperSlide>
-                <SwiperSlide><img src={slide3} alt="" />
-                    <h4 className='text-3xl uppercase text-center text-white -mt-16 font-bold'>Soup</h4>
-                </SwiperSlide>
-                <SwiperSlide><img src={slide4} alt="" />
-                    <h4 className='text-3xl uppercase text-center text-white -mt-16 font-bold'>Dessert</h4>
-                </SwiperSlide>
-                <SwiperSlide><img src={slide5} alt="" />
-                    <h4 className='text-3xl uppercase text-center text-white -mt-16 font-bold'>Haleem</h4>
-                </SwiperSlide>
-                <SwiperSlide><img src={slide6} alt="" />
-                    <h4 className='text-3xl uppercase text-center text-white -mt-16 font-bold'>Grill</h4>
-                </SwiperSlide>
-                <SwiperSlide><img src={slide7} alt="" />
-                    <h4 className='text-3xl uppercase text-center text-white -mt-16 font-bold'>Seekh Kebab</h4>
+                <SwiperSlide>
+                    <SliderContent img={slide1} title="salad"></SliderContent>  
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={slide8} alt="" />
-                    <h4 className='text-3xl uppercase text-center text-white -mt-16 font-bold'>Kacchi Biryani</h4>
+                    <SliderContent img={slide2} title="pizza"></SliderContent>  
+                </SwiperSlide>
+                <SwiperSlide>
+                <SliderContent img={slide3} title="soup"></SliderContent> 
+                </SwiperSlide>
+                <SwiperSlide>
+                <SliderContent img={slide4} title="dessert"></SliderContent> 
+                </SwiperSlide>
+                <SwiperSlide>
+                <SliderContent img={slide5} title="halim"></SliderContent> 
+                </SwiperSlide>
+                <SwiperSlide>
+                <SliderContent img={slide6} title="grill"></SliderContent> 
+                </SwiperSlide>
+                <SwiperSlide>
+                <SliderContent img={slide7} title="seekh kebab"></SliderContent> 
+                </SwiperSlide>
+                <SwiperSlide>
+                <SliderContent img={slide8} title="biryani"></SliderContent> 
                 </SwiperSlide>
 
             </Swiper>
