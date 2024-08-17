@@ -11,22 +11,22 @@ const Banner = () => {
     return (
         <Carousel className="mb-20 text-center custom-carousel">
             <div>
-                <img src={img5} />
+                <img src={img5} alt="image1"/>
             </div>
             <div>
-                <img src={img4} />
+                <img src={img4} alt="image2"/>
             </div>
             <div>
-                <img src={img6} />
+                <img src={img6} alt="image3"/>
             </div>
             <div>
-                <img src={img2} />
+                <img src={img2} alt="image4"/>
             </div>
             <div>
-                <img src={img1} />
+                <img src={img1} alt="image5"/>
             </div>
             <div>
-                <img src={img3} />
+                <img src={img3} alt="image6"/>
             </div>
         </Carousel>
     );
