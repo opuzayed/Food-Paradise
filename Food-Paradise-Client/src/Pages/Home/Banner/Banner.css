@@ -1,0 +1,9 @@
+.custom-carousel img {
+    width: 100%; /* Make the image take the full width of its container */
+    height: 500px; /* Set a fixed height for the images */
+    object-fit: cover; /* Ensure the images cover the entire area without stretching */
+}
+.custom-carousel .thumb {
+    width: 5%;
+    height: 50px;
+}
