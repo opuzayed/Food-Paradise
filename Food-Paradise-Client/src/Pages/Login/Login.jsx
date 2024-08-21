@@ -1,14 +1,14 @@
 const Login = () => {
     return (
       <div className="hero min-h-screen flex items-center justify-center">
-        <div className="hero-content flex flex-col items-center text-center w-full max-w-md shadow-2xl shadow-slate-700">
+        <div className="hero-content flex flex-col items-center text-center w-full max-w-md md:shadow-2xl md:shadow-slate-700">
           <div>
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
+            <h1 className="text-5xl font-bold">Login Here</h1>
+            {/* <p className="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
               a id nisi.
-            </p>
+            </p> */}
           </div>
           <div className="card w-full">
             <form className="card-body">
