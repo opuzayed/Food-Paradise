@@ -76,7 +76,7 @@ const Login = () => {
                 ref={captchaRef}
                 required
               />
-              <button onClick={handleValidateCaptcha} className="btn btn-outline btn-xs mt-3">Tiny</button>
+              <button onClick={handleValidateCaptcha} className="btn btn-outline btn-xs mt-3">Validate</button>
             </div>
 
             <div className="form-control mt-6 w-full">
