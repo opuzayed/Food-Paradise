@@ -1,8 +1,11 @@
-import { useEffect } from 'react';
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { useEffect, useRef, useState } from 'react';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 
 const Login = () => { 
 
+      const captchaRef = useRef(null);
+      const [disabled, setDisabled] = useState(true);
+      
       useEffect(()=>{
         loadCaptchaEnginge(6); 
       }, []);
@@ -12,6 +15,16 @@ const Login = () => {
           const form = event.target;
           const email = form.email.value;
           const password = form.password.value;
+        }
+
+        const handleValidateCaptcha = () => {
+          const user_captcha_value = captchaRef.current.value;
+          if(validateCaptcha(user_captcha_value)){
+            setDisabled(false);
+          }
+          else{
+            setDisabled(true);
+          }
         }
 
   return (
@@ -60,15 +73,17 @@ const Login = () => {
                 name="captcha"
                 placeholder="type captcha above"
                 className="input input-bordered"
+                ref={captchaRef}
                 required
               />
-              <button className="btn btn-outline btn-xs mt-3">Tiny</button>
+              <button onClick={handleValidateCaptcha} className="btn btn-outline btn-xs mt-3">Tiny</button>
             </div>
 
             <div className="form-control mt-6 w-full">
               <input
                 type="submit"
                 value="Login"
+                disabled={disabled}
                 className="btn btn-lg bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-700 hover:to-green-700 text-white md:font-extrabold rounded-md w-full cursor-pointer md:text-2xl"
               />
             </div>
