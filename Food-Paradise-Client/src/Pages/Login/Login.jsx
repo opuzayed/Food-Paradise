@@ -39,7 +39,7 @@ const Login = () => {
               <input
                 type="submit"
                 value="Login"
-                className="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-700 hover:to-green-700 text-white font-bold text-3xl h-14 rounded-md w-full cursor-pointer"
+                className="btn btn-lg bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-700 hover:to-green-700 text-white font-extrabold rounded-md w-full cursor-pointer text-2xl"
               />
             </div>
           </form>
