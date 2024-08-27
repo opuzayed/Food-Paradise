@@ -51,9 +51,10 @@ const SignUp = () => {
               type="password"
               placeholder="Password"
               name="password"
-              {...register("password", { required: true, minLength: 6, maxLength: 10,  pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]$/})}
+              {...register("password", {required: true, minLength: 6, maxLength: 10, pattern: /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/})}
               className="input input-bordered w-full mb-2"
               required
+              maxLength={10}
             />
             {errors.password?.type === "required" && (
               <p className="text-red-500 mt-1">Password is required</p>
