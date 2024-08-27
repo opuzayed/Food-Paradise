@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 
 const SignUp = () => {
 
-  const {register, handleSubmit, watch, formState: { errors }} = useForm();
+  const {register, handleSubmit, formState: { errors }} = useForm();
 
   const onSubmit = (data) => {
           console.log(data)
@@ -41,10 +41,12 @@ const SignUp = () => {
                 type="email"
                 placeholder="email"
                 name="email"
-                {...register("email")}
+                {...register("email", { required: true })}
                 className="input input-bordered"
                 required
               />
+              {errors.email && <span className="text-red-500 mt-1">Email field is required</span>}
+
             </div>
             <div className="form-control">
               <label className="label">
@@ -54,10 +56,11 @@ const SignUp = () => {
                 type="password"
                 placeholder="password"
                 name="password"
-                {...register("password")}
+                {...register("password", { required: true })}
                 className="input input-bordered"
                 required
               />
+              {errors.password && <span className="text-red-500 mt-1">Password field is required</span>}
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
