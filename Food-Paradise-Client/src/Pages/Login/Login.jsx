@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => { 
 
@@ -37,7 +38,11 @@ const Login = () => {
 
   return (
     // hero min-h-screen flex items-center justify-center
-    <div className="flex items-center justify-center h-screen bg-base-200">
+    <>
+    <Helmet>
+      <title>Food-Paradise | Login</title>
+    </Helmet>
+      <div className="flex items-center justify-center h-screen bg-base-200">
       {/* hero-content flex flex-col items-center text-center w-full max-w-md md:shadow-2xl md:shadow-slate-700 */}
       <div className="w-full max-w-md bg-base-100 md:shadow-2xl md:shadow-slate-700 rounded-lg">
         <div className="text-center">
@@ -102,6 +107,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
