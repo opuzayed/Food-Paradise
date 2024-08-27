@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -74,6 +75,7 @@ const SignUp = () => {
               className="btn btn-lg bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-700 hover:to-green-700 text-white font-bold rounded-md w-full cursor-pointer"
             />
           </div>
+          <p className='text-center'><small>Already have an Account?<Link to="/login" className='font-bold text-green-500'> Go to Login </Link></small></p>
         </form>
       </div>
     </div>
