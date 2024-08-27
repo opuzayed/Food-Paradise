@@ -45,7 +45,7 @@ const SignUp = () => {
                 className="input input-bordered"
                 required
               />
-              {errors.email && <span className="text-red-500 mt-1">Email field is required</span>}
+              {errors.email && <span className="text-red-500 mt-1">Email Address is required</span>}
 
             </div>
             <div className="form-control">
@@ -56,11 +56,12 @@ const SignUp = () => {
                 type="password"
                 placeholder="password"
                 name="password"
-                {...register("password", { required: true })}
+                {...register("password", { required: true,  minLength: 6, maxLength:10 })}
                 className="input input-bordered"
                 required
               />
-              {errors.password && <span className="text-red-500 mt-1">Password field is required</span>}
+              {errors.password?.type === "required" && (<p className="text-red-500 mt-1">Password is required</p>
+      )}
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
