@@ -1,78 +1,77 @@
 import { useForm } from "react-hook-form";
 
 const SignUp = () => {
-
-  const {register, handleSubmit, formState: { errors }} = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-          console.log(data)
-  }
+    console.log(data);
+  };
 
   return (
-    <div className="hero bg-base-200 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">SignUp Here</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
+    <div className="flex items-center justify-center min-h-screen bg-base-200">
+      <div className="w-full max-w-md px-6 py-8 bg-base-100 md:shadow-2xl md:shadow-slate-700 rounded-lg">
+        <div className="mb-4 text-center">
+          <h1 className="text-4xl font-bold">SignUp Here</h1>
         </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Name</span>
-              </label>
-              <input
-                type="text"
-                placeholder="type name"
-                {...register("name")}
-                name="name"
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="email"
-                placeholder="email"
-                name="email"
-                {...register("email", { required: true })}
-                className="input input-bordered"
-                required
-              />
-              {errors.email && <span className="text-red-500 mt-1">Email Address is required</span>}
-
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                placeholder="password"
-                name="password"
-                {...register("password", { required: true,  minLength: 6, maxLength:10 })}
-                className="input input-bordered"
-                required
-              />
-              {errors.password?.type === "required" && (<p className="text-red-500 mt-1">Password is required</p>
-      )}
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
-            </div>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary">SignUp</button>
-            </div>
-          </form>
-        </div>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Type your name"
+              {...register("name")}
+              name="name"
+              className="input input-bordered w-full"
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Email</span>
+            </label>
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              {...register("email", { required: true })}
+              className="input input-bordered w-full"
+              required
+            />
+            {errors.email && (
+              <span className="text-red-500 mt-1">Email Address is required</span>
+            )}
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Password</span>
+            </label>
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              {...register("password", { required: true, minLength: 6, maxLength: 10 })}
+              className="input input-bordered w-full"
+              required
+            />
+            {errors.password?.type === "required" && (
+              <p className="text-red-500 mt-1">Password is required</p>
+            )}
+            {errors.password?.type === "minLength" && (
+              <p className="text-red-500 mt-1">Password must be six characters or more</p>
+            )}
+            {errors.password?.type === "maxLength" && (
+              <p className="text-red-500 mt-1">Password should not exceed ten characters </p>
+            )}
+          </div>
+          <div className="form-control mt-6">
+            <input
+              type="submit"
+              value="SignUp"
+              className="btn btn-lg bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-700 hover:to-green-700 text-white font-bold rounded-md w-full cursor-pointer"
+            />
+          </div>
+        </form>
       </div>
     </div>
   );

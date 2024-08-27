@@ -36,13 +36,15 @@ const Login = () => {
         }
 
   return (
-    <div className="hero min-h-screen flex items-center justify-center">
-      <div className="hero-content flex flex-col items-center text-center w-full max-w-md md:shadow-2xl md:shadow-slate-700">
-        <div>
-          <h1 className="text-3xl font-bold">Login Here</h1>
+    // hero min-h-screen flex items-center justify-center
+    <div className="flex items-center justify-center h-screen bg-base-200">
+      {/* hero-content flex flex-col items-center text-center w-full max-w-md md:shadow-2xl md:shadow-slate-700 */}
+      <div className="w-full max-w-md bg-base-100 md:shadow-2xl md:shadow-slate-700 rounded-lg">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold pt-2">Login Here</h1>
         </div>
         <div className="card w-full">
-          <form onSubmit={handleLogin} className="card-body text-left">
+          <form onSubmit={handleLogin} className="card-body text-left p-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -87,7 +89,7 @@ const Login = () => {
               <button onClick={handleValidateCaptcha} className="btn btn-outline btn-xs mt-3">Validate</button>
             </div>
 
-            <div className="form-control mt-6 w-full">
+            <div className="form-control mt-2 w-full">
               <input
                 type="submit"
                 value="Login"
@@ -95,8 +97,8 @@ const Login = () => {
                 className="btn btn-lg bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-700 hover:to-green-700 text-white md:font-extrabold rounded-md w-full cursor-pointer md:text-2xl"
               />
             </div>
+          <p className='text-center'><small>New Here?<Link to="/signup" className='font-bold text-green-500'> Create a New Account</Link></small></p>
           </form>
-          <p><small className='text-xl'>New Here?<Link to="/signup" className='font-bold text-green-500'> Create a New Account</Link></small></p>
         </div>
       </div>
     </div>
