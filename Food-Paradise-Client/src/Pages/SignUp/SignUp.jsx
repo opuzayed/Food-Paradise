@@ -50,8 +50,8 @@ const SignUp = () => {
               type="password"
               placeholder="Password"
               name="password"
-              {...register("password", { required: true, minLength: 6, maxLength: 10 })}
-              className="input input-bordered w-full"
+              {...register("password", { required: true, minLength: 6, maxLength: 10,  pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]$/})}
+              className="input input-bordered w-full mb-2"
               required
             />
             {errors.password?.type === "required" && (
@@ -62,6 +62,9 @@ const SignUp = () => {
             )}
             {errors.password?.type === "maxLength" && (
               <p className="text-red-500 mt-1">Password should not exceed ten characters </p>
+            )}
+            {errors.password?.type === "pattern" && (
+              <p className="text-red-500 mt-1">Password contain at least one uppercase letter, one lowercase letter one number and one special character </p>
             )}
           </div>
           <div className="form-control mt-6">
