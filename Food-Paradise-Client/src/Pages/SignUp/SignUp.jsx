@@ -47,6 +47,17 @@ const SignUp = () => {
             </div>
             <div className="form-control">
               <label className="label">
+                <span className="label-text">PhotoURL</span>
+              </label>
+              <input
+                type="text"
+                placeholder="photoURL"
+                {...register("photoURL")}
+                className="input input-bordered w-full"
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
