@@ -11,19 +11,27 @@ const NavBar = () => {
         .catch(error => console.log(error));
     }
 
-    const navOptions = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/menu'>Our Menu</Link></li>
-        <li><Link to='/order/salad'>Order Food</Link></li>
-        <li><Link to='/signup'>SignUp</Link></li>
-       
-        {
-            user ? <>
-            <button onClick={handleLogOut} className="btn btn-accent text-white">LogOut</button>
-            </> 
-            : <> <li><Link to='/login'>Login</Link></li> </>
-        }
-    </>
+    const navOptions = 
+        <>
+            <li className='flex items-center justify-center'><Link to='/'>Home</Link></li>
+            <li className='flex items-center justify-center'><Link to='/menu'>Our Menu</Link></li>
+            <li className='flex items-center justify-center'><Link to='/order/salad'>Order Food</Link></li>
+            <li className='flex items-center justify-center'><Link to='/signup'>SignUp</Link></li>
+
+            {user ? <>
+                <li className='flex items-center justify-center'>
+                    <button onClick={handleLogOut} className="btn btn-ghost text-white">
+                        LogOut
+                    </button>
+                </li>
+                </>
+                :
+                <>
+            <li className='flex items-center justify-center'><Link to='/login'>Login</Link></li>
+                </>
+            }
+        </>
+    
 
     {/* <li>
             <a>Parent</a>
