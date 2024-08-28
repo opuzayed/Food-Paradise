@@ -3,6 +3,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import Swal from 'sweetalert2'
 
 const Login = () => { 
 
@@ -23,6 +24,7 @@ const Login = () => {
           .then(result => {
             const user = result.user;
             console.log(user);
+            Swal.fire("User Login Successfully");
           })
         }
 
