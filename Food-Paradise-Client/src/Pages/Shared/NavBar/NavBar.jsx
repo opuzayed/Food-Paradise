@@ -20,6 +20,7 @@ const NavBar = () => {
             <li className='flex items-center justify-center'><Link to='/secret'>Secret</Link></li>
 
             {user ? <>
+                <li className='flex items-center justify-center'><span>{user?.displayName}</span></li>
                 <li className='flex items-center justify-center'>
                     <button onClick={handleLogOut} className="btn btn-ghost text-white">
                         LogOut
