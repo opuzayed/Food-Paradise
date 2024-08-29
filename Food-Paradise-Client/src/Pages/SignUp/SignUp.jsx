@@ -46,11 +46,12 @@ const SignUp = () => {
       <title>Food-Pradise | SignUp</title>
     </Helmet>
       <div className="flex items-center justify-center min-h-screen bg-base-200">
-        <div className="w-full max-w-md px-6 py-8 bg-base-100 md:shadow-2xl md:shadow-slate-700 rounded-lg">
-          <div className="mb-4 text-center">
-            <h1 className="text-4xl font-bold">SignUp Here</h1>
+        <div className="w-full max-w-md bg-base-100 md:shadow-2xl md:shadow-slate-700 rounded-lg">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold pt-2">SignUp Here</h1>
           </div>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <div className="card w-full">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body text-left p-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -148,6 +149,7 @@ const SignUp = () => {
               </small>
             </p>
           </form>
+          </div>
         </div>
       </div>
     </>
