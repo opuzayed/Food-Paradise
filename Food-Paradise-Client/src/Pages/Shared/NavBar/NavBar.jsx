@@ -31,8 +31,8 @@ const NavBar = () => {
       <li className="flex items-center justify-center">
         <Link to="/">
           <button className="btn btn-xs">
-           <FaShoppingCart></FaShoppingCart>
-            <div className="badge badge-secondary">+99</div>
+           <FaShoppingCart className="text-lg text-green-400"></FaShoppingCart>
+            <div className="badge badge-secondary">+0</div>
           </button>
         </Link>
       </li>
