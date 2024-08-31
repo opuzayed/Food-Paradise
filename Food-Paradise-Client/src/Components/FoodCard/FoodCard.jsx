@@ -24,6 +24,15 @@ const FoodCard = ({ item }) => {
         axios.post('http://localhost:5000/carts', cartItem)
         .then(res => {
             console.log(res.data);
+            if(res.data.insertedId){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${name} added to your cart`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
         })
        }
        else
