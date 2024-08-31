@@ -28,6 +28,8 @@ async function run() {
 
     const menuCollection = client.db("foodDb").collection("menu");
     const reviewCollection = client.db("foodDb").collection("reviews");
+    const cartCollection = client.db("foodDb").collection("carts");
+    
 
     app.get('/menu', async (req, res) => {
       const result = await menuCollection.find().toArray();
