@@ -13,7 +13,7 @@ const Order = () => {
 
     const categories = ['Salad', 'Pizza', 'Soup', 'Dessert', 'Drinks'];
     const { category } = useParams();
-    // const initialIndex = categories.indexOf(category);
+
     const [tabIndex, setTabIndex] = useState(0);
     useEffect(() => {
         const initialIndex = categories.indexOf(category.charAt(0).toUpperCase() + category.slice(1));

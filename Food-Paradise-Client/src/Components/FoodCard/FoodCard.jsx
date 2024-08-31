@@ -1,17 +1,25 @@
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const FoodCard = ({ item }) => {
 
-    const { name, recipe, image, price } = item;
+    const { name, recipe, image, price, _id } = item;
     const {user} = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleAddToCart = food => {
        if(user && user.email)
        {
-
+        console.log(user.email, food);
+        const cartItem = {
+            menuId : _id,
+            email : user.email,
+            name,
+            image,
+            price
+        }
        }
        else
        {
@@ -25,7 +33,7 @@ const FoodCard = ({ item }) => {
             confirmButtonText: "Yes, Logged In"
           }).then((result) => {
             if (result.isConfirmed) {
-              navigate('/login');
+              navigate('/login', { state: { from: location} });
             }
           });
        }
