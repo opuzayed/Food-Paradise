@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const FoodCard = ({ item }) => {
 
@@ -20,6 +21,10 @@ const FoodCard = ({ item }) => {
             image,
             price
         }
+        axios.post('http://localhost:5000/carts', cartItem)
+        .then(res => {
+            console.log(res.data);
+        })
        }
        else
        {
