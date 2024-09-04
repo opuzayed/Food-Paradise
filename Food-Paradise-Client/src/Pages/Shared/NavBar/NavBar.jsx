@@ -31,7 +31,7 @@ const NavBar = () => {
         <Link to="/secret">Secret</Link>
       </li>
       <li className="flex items-center justify-center">
-        <Link to="/">
+        <Link to="/dashboard/cart">
           <button className="btn btn-xs">
            <FaShoppingCart className="text-lg text-green-400"></FaShoppingCart>
             <div className="badge badge-secondary">+{cart.length}</div>
