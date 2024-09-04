@@ -12,12 +12,12 @@ const FoodCard = ({ item }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const axiosSecure = useAxiosSecure();
-    const [refetch] = useCart();
+    const [, refetch] = useCart();
 
-    const handleAddToCart = food => {
+    const handleAddToCart = () => {
        if(user && user.email)
        {
-        console.log(user.email, food);
+        
         const cartItem = {
             menuId : _id,
             email : user.email,
@@ -36,7 +36,9 @@ const FoodCard = ({ item }) => {
                     showConfirmButton: false,
                     timer: 1500
                   });
+                  refetch();
             }
+            
         })
        }
        else
@@ -70,7 +72,7 @@ const FoodCard = ({ item }) => {
                 <h2 className="card-title">{name}</h2>
                 <p>{recipe}</p>
                 <div className="card-actions">
-                    <button onClick={()=> handleAddToCart(item)} className="btn btn-outline border-orange-300 btn-info uppercase border-0 border-b-4">Add To Cart</button>
+                    <button onClick={handleAddToCart} className="btn btn-outline border-orange-300 btn-info uppercase border-0 border-b-4">Add To Cart</button>
                 </div>
             </div>
         </div>
