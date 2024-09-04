@@ -1,16 +1,19 @@
-import { NavLink } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+import { NavLink, Outlet } from "react-router-dom";
 
 
 const Dashboard = () => {
     return (
         <div className="flex">
-            <div className="w-64 min-h-screen bg-rose-300">
-            <ul>
-                <li><NavLink to='/dashboard/cart'>My Cart</NavLink></li>
+            <div className="w-64 min-h-screen bg-orange-200">
+                <h5 className="mt-10 p-4"><span className="font-bold">FOOD PARADISE</span> <br /><span className="tracking-[0.2em]">RESTAURANT</span></h5>
+               
+            <ul className="menu p-4">
+                <li><NavLink to='/dashboard/cart'><FaShoppingCart></FaShoppingCart>MY CART</NavLink></li>
             </ul>
             </div>
             <div className="flex-1">
-                <outlet></outlet>
+               <Outlet></Outlet>
             </div>
         </div>
     );
