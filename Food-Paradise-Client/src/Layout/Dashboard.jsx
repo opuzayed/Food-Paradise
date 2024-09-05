@@ -25,10 +25,11 @@ const Dashboard = () => {
                 <div className="divider before:bg-black after:bg-black"></div>
 
                 <li><NavLink to='/' className="flex items-center"><FaHome className="mr-2"></FaHome>HOME</NavLink></li>
-                <li><NavLink to='/' className="flex items-center"><FaClipboardList className="mr-2"></FaClipboardList>MENU</NavLink></li>
+
+                <li><NavLink to='/order/salad' className="flex items-center"><FaClipboardList className="mr-2"></FaClipboardList>MENU</NavLink></li>
             </ul>
             </div>
-            <div className="flex-1">
+            <div className="flex-1 p-4">
                <Outlet></Outlet>
             </div>
         </div>
