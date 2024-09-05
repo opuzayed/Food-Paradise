@@ -23,6 +23,8 @@ const Dashboard = () => {
                 <li><NavLink to='/dashboard/booking' className="flex items-center "><FaClipboardList className="mr-2"></FaClipboardList>MY BOOKINGS</NavLink></li>
 
                 <div className="divider before:bg-black after:bg-black"></div>
+
+                <li><NavLink to='/' className="flex items-center"><FaHome className="mr-2"></FaHome>HOME</NavLink></li>
             </ul>
             </div>
             <div className="flex-1">
