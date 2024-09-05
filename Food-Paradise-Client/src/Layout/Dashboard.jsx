@@ -21,6 +21,8 @@ const Dashboard = () => {
                 <li><NavLink to='/dashboard/review' className="flex items-center "><FaComment className="mr-2"></FaComment>ADD REVIEW</NavLink></li>
 
                 <li><NavLink to='/dashboard/booking' className="flex items-center "><FaClipboardList className="mr-2"></FaClipboardList>MY BOOKINGS</NavLink></li>
+
+                <div className="divider before:bg-black after:bg-black"></div>
             </ul>
             </div>
             <div className="flex-1">
