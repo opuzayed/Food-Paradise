@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from 'sweetalert2';
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const SignUp = () => {
+  const axiosPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -24,14 +26,21 @@ const SignUp = () => {
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
       .then(() => {
-        console.log('User Profile Info Updated');
-        reset();
+        const userInfo = {
+          name : data.name,
+          email : data.email,
+        }
+        axiosPublic.post('/users', userInfo)
+        .then(res => {
+          if(res.data.insertedId)
+            reset();
         Swal.fire({
           position: "top-end",
           icon: "success",
           title: "User Created Successfully",
           showConfirmButton: false,
           timer: 1500
+        });
         });
         navigate('/');
       })
