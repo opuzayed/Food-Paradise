@@ -4,6 +4,10 @@ import useCart from "../../../hooks/useCart";
 const Cart = () => {
   const [cart] = useCart();
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+  const handleDelete = id => {
+    
+  }
+
   return (
     <div>
       <div className="flex justify-evenly mb-10">
@@ -48,7 +52,7 @@ const Cart = () => {
                     </td>
                     <td>{item.price}</td>
                     <th>
-                      <button className="btn btn-ghost btn-lg text-red-500"><FaTrashAlt></FaTrashAlt></button>
+                      <button onClick={() => handleDelete(item._id)} className="btn btn-ghost btn-lg text-red-500"><FaTrashAlt></FaTrashAlt></button>
                     </th>
                   </tr>)
             }
