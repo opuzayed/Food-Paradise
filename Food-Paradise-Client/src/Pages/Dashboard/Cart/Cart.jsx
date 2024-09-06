@@ -1,3 +1,4 @@
+import { FaTrashAlt } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
 
 const Cart = () => {
@@ -5,7 +6,7 @@ const Cart = () => {
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
   return (
     <div>
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly mb-10">
         <h2 className="text-3xl font-medium">ITEMS: {cart.length}</h2>
         <h2 className="text-3xl font-medium">TOTAL PRICE: {totalPrice}</h2>
         <button className="btn btn-primary">PAY</button>
@@ -13,7 +14,7 @@ const Cart = () => {
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className="text-black">
             <tr>
               <th>
                 #
@@ -26,11 +27,9 @@ const Cart = () => {
           </thead>
           <tbody>
             {
-                cart.map(item => <tr key= {item._id}>
+                cart.map((item,index) => <tr key= {item._id}>
                     <th>
-                      <label>
-                        <input type="checkbox" className="checkbox" />
-                      </label>
+                      {index + 1}
                     </th>
                     <td>
                       <div className="flex items-center gap-3">
@@ -42,22 +41,14 @@ const Cart = () => {
                             />
                           </div>
                         </div>
-                        <div>
-                          <div className="font-bold">Hart Hagerty</div>
-                          <div className="text-sm opacity-50">United States</div>
-                        </div>
                       </div>
                     </td>
                     <td>
-                      Zemlak, Daniel and Leannon
-                      <br />
-                      <span className="badge badge-ghost badge-sm">
-                        Desktop Support Technician
-                      </span>
+                      {item.name}
                     </td>
-                    <td>Purple</td>
+                    <td>{item.price}</td>
                     <th>
-                      <button className="btn btn-ghost btn-xs">details</button>
+                      <button className="btn btn-ghost btn-lg text-red-500"><FaTrashAlt></FaTrashAlt></button>
                     </th>
                   </tr>)
             }
