@@ -1,22 +1,25 @@
 import { FaGoogle } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
 
-const SocialLogin = () => {
-  const {googleSignIn} = useAuth();
+const SocialLogin = ({btnText}) => {
+  const { googleSignIn } = useAuth();
 
   const handleGoogleSignIn = () => {
-googleSignIn()
-.then(result => {
-  console.log(result.user);
-})
-  }
+    googleSignIn().then((result) => {
+      console.log(result.user);
+    });
+  };
   return (
     <div>
-        <div className="divider">OR</div>
+      <div className="divider">OR</div>
       <div>
-        <button onClick={handleGoogleSignIn} className="btn w-full btn-outline btn-success">
+        <button
+          onClick={handleGoogleSignIn}
+          className="btn w-full btn-outline btn-success font-bold"
+        >
           <FaGoogle></FaGoogle>
-          Sign up with Google
+          {btnText}
+          {/* Sign up with Google */}
         </button>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../Components/SocialLogin/SocialLogin';
 
 const Login = () => { 
     const [disabled, setDisabled] = useState(true);
@@ -105,6 +106,7 @@ const Login = () => {
                                     className="btn btn-lg bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-700 hover:to-green-700 text-white md:font-extrabold rounded-md w-full cursor-pointer md:text-2xl"
                                 />
                             </div>
+                            <SocialLogin btnText={"Continue with Google"}></SocialLogin>
                             <p className='text-center'>
                                 <small>New Here?<Link to="/signup" className='font-bold text-green-500'> Create a New Account</Link></small>
                             </p>

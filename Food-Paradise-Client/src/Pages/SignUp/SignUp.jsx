@@ -149,7 +149,7 @@ const SignUp = () => {
                 className="btn btn-lg bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-700 hover:to-green-700 text-white font-bold rounded-md w-full cursor-pointer"
               />
             </div>
-           <SocialLogin></SocialLogin>
+           <SocialLogin btnText={"Sign up with Google"}></SocialLogin>
             <p className="text-center">
               <small>
                 Already have an Account?
