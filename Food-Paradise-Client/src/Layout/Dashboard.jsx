@@ -6,6 +6,7 @@ import useCart from "../hooks/useCart";
 
 const Dashboard = () => {
     const [cart] = useCart();
+    const isAdmin = true;
     return (
         <div className="flex text-black">
             <div className="w-64 min-h-screen bg-orange-200">
@@ -23,6 +24,8 @@ const Dashboard = () => {
                 <li><NavLink to='/dashboard/review' className="flex items-center "><FaComment className="mr-2"></FaComment>ADD REVIEW</NavLink></li>
 
                 <li><NavLink to='/dashboard/booking' className="flex items-center "><FaClipboardList className="mr-2"></FaClipboardList>MY BOOKINGS</NavLink></li>
+
+                {/* shared navlinks */}
 
                 <div className="divider before:bg-black after:bg-black"></div>
 
