@@ -1,6 +1,6 @@
 import { FaGoogle } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
-
+import googleIcon from "../../assets/icon/googleicon.png";
 const SocialLogin = ({btnText}) => {
   const { googleSignIn } = useAuth();
 
@@ -17,7 +17,7 @@ const SocialLogin = ({btnText}) => {
           onClick={handleGoogleSignIn}
           className="btn w-full btn-outline btn-success font-bold"
         >
-          <FaGoogle></FaGoogle>
+          <img src={googleIcon} alt="Google Icon" className="w-6 h-6"/>
           {btnText}
           {/* Sign up with Google */}
         </button>
