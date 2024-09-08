@@ -1,5 +1,5 @@
 import { FaCalendar, FaClipboardList, FaComment, FaHome, FaShoppingCart, } from "react-icons/fa";
-import { FaPaypal } from "react-icons/fa6";
+import { FaEnvelope, FaPaypal } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
 
@@ -29,6 +29,7 @@ const Dashboard = () => {
                 <li><NavLink to='/' className="flex items-center"><FaHome className="mr-2"></FaHome>HOME</NavLink></li>
 
                 <li><NavLink to='/order/salad' className="flex items-center"><FaClipboardList className="mr-2"></FaClipboardList>MENU</NavLink></li>
+                <li><NavLink to='/contact' className="flex items-center"><FaEnvelope className="mr-2"></FaEnvelope>CONTACT</NavLink></li>
             </ul>
             </div>
             <div className="flex-1 p-4 bg-white">
