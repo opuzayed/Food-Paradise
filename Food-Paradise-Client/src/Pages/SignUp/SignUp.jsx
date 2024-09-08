@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from 'sweetalert2';
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const axiosPublic = useAxiosPublic();
@@ -148,6 +149,7 @@ const SignUp = () => {
                 className="btn btn-lg bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-700 hover:to-green-700 text-white font-bold rounded-md w-full cursor-pointer"
               />
             </div>
+           <SocialLogin></SocialLogin>
             <p className="text-center">
               <small>
                 Already have an Account?
