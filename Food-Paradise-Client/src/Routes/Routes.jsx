@@ -57,7 +57,7 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
         //admin route
         {
-          path:'/users',
+          path:'users',
           element: <AllUsers></AllUsers>
         }
       ]

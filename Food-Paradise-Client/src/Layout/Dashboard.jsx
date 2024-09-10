@@ -61,7 +61,7 @@ const Dashboard = () => {
               </li>
 
               <li>
-                <NavLink to="/dashboard/review" className="flex items-center text-white">
+                <NavLink to="/dashboard/users" className="flex items-center text-white">
                   <FaUsers className="mr-2"></FaUsers>ALL USERS
                 </NavLink>
               </li>
