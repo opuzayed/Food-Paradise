@@ -45,8 +45,14 @@ const SignUp = () => {
         });
         navigate('/');
       })
-      .catch(error => console.log(error))
-    });
+      .catch(error => console.log("error",error))
+    }).catch(error =>  Swal.fire({
+      position: "top-end",
+      icon: "error",
+      title: "User Already Exists.Try Another",
+      showConfirmButton: false,
+      timer: 1500
+    }));
     
   };
 
@@ -55,7 +61,7 @@ const SignUp = () => {
     <Helmet>
       <title>Food-Pradise | SignUp</title>
     </Helmet>
-      <div className="flex items-center justify-center min-h-screen bg-base-200">
+      <div className="flex items-center justify-center min-h-screen bg-base-200 py-20">
         <div className="w-full max-w-md bg-base-100 md:shadow-2xl md:shadow-slate-700 rounded-lg">
           <div className="text-center">
             <h1 className="text-3xl font-bold pt-2">SignUp Here</h1>
@@ -149,8 +155,11 @@ const SignUp = () => {
                 className="btn btn-lg bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-700 hover:to-green-700 text-white font-bold rounded-md w-full cursor-pointer"
               />
             </div>
-           <SocialLogin btnText={"Sign up with Google"}></SocialLogin>
-            <p className="text-center">
+          
+          </form>
+
+          <SocialLogin btnText={"Sign up with Google"}></SocialLogin>
+            <p className="text-center mb-2">
               <small>
                 Already have an Account?
                 <Link to="/login" className="font-bold text-green-500">
@@ -159,7 +168,6 @@ const SignUp = () => {
                 </Link>
               </small>
             </p>
-          </form>
           </div>
         </div>
       </div>
