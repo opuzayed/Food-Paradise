@@ -19,6 +19,7 @@ const AllUsers = () => {
     .then(res => {
       console.log(res.data);
       if(res.data.modifiedCount > 0){
+        refetch();
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -33,7 +34,7 @@ const AllUsers = () => {
   const handleDelete = (user) => {
     Swal.fire({
       title: "Are you sure?",
-      text: 'Are You Sure, You Want To Delete User',
+      text: `Are You Sure, You Want To Delete ${user.name}`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -41,12 +42,12 @@ const AllUsers = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/carts/${id}`)
+        axiosSecure.delete(`/users/${user._id}`)
         .then(res => {
           if(res.data.deletedCount){
             Swal.fire({
           title: "Deleted!",
-          text: "Your Selected Item  has been deleted.",
+          text: `{user.name} has been deleted Successfully`,
           icon: "success"
         });
         refetch();
