@@ -13,6 +13,15 @@ const useAxiosSecure = () => {
     }, (error) => {
         return Promise.reject(error);
     });
+
+    // interceptor 401 and 403 status
+    axiosSecure.interceptors.response.use(function (response){
+        return response;
+    }, (error) =>{
+        const status = error.response.status;
+        console.log('status error in the interceptors', status);
+        return Promise.reject(error);
+    });
     return axiosSecure;
 };
 
