@@ -31,18 +31,36 @@ async function run() {
     const cartCollection = client.db("foodDb").collection("carts");
 
     //jwt related api
+
     app.post("/jwt", async (req, res) => {
       const user = req.body;
-      const token = jwt.sign(user, process.env.ACCESS-TOKEN-SECRET, {expiresIn : '1h'});
+      const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn : '1h'});
       res.send({token});
-    })
+    });
+
+    MIDDLEWARES
+    const verifyToken = (req, res, next) => {
+      //console.log('inside verify token', req.headers);
+      if(!req.headers.authorization){
+        return res.status(401).send({message : 'forbidden access'});
+      }
+      const token = req.headers.authorization.split(' ')[1];
+      jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+        if(err){
+          return res.status(401).send({message : 'forbiden-access'});
+        }
+        req.decoded = decoded;
+        next();
+      });
+    }
 
     //users api 
     
-    app.get("/users", async (req, res) => {
+    app.get("/users", verifyToken, async (req, res) => {
+      //console.log('inside verify token', req.headers);
       const result = await userCollection.find().toArray();
       res.send(result);
-    })
+    });
 
     app.post("/users", async(req, res) => {
       const user = req.body;
