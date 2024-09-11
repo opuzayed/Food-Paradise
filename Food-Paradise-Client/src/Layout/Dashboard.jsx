@@ -8,15 +8,15 @@ import {
   FaUserAlt,
   FaUsers,
   FaUtensils,
-  FaUtensilSpoon,
 } from "react-icons/fa";
 import { FaBook, FaEnvelope, FaPaypal, FaUser } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const [cart] = useCart();
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <div className="flex text-black">
       <div className="w-64 min-h-screen bg-orange-200">
