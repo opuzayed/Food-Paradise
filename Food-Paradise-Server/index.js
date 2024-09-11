@@ -38,7 +38,7 @@ async function run() {
       res.send({token});
     });
 
-    MIDDLEWARES
+    //MIDDLEWARES
     const verifyToken = (req, res, next) => {
       //console.log('inside verify token', req.headers);
       if(!req.headers.authorization){
@@ -60,6 +60,20 @@ async function run() {
       //console.log('inside verify token', req.headers);
       const result = await userCollection.find().toArray();
       res.send(result);
+    });
+
+    app.get("/users/admin/:email", async (req, res) => {
+      const email = req.params.email;
+      if(email !== req.decoded.email){
+        res.status(403).send({message : 'unauthorized access'})
+      }
+      const query = {email : email};
+      const user = await userCollection.findOne(query);
+      let admin = false;
+      if(user){
+        admin = user?.role === 'admin';
+      }
+      res.send({admin});
     });
 
     app.post("/users", async(req, res) => {
