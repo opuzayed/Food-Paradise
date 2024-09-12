@@ -13,6 +13,7 @@ import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/Dashboard/Cart/Cart";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AddItems from "../Pages/Dashboard/AddItems/AddItems";
+import AdminRoutes from "./AdminRoutes";
 
 
 
@@ -60,11 +61,11 @@ import AddItems from "../Pages/Dashboard/AddItems/AddItems";
         //admin only routes
         {
           path: 'addItems',
-          element: <AddItems></AddItems>
+          element: <AdminRoutes><AddItems></AddItems></AdminRoutes>
         },
         {
           path:'users',
-          element: <AllUsers></AllUsers>
+          element: <AdminRoutes><AllUsers></AllUsers></AdminRoutes>
         }
       ]
     }
