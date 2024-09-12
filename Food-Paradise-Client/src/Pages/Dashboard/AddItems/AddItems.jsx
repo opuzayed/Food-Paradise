@@ -14,7 +14,7 @@ const AddItems = () => {
       ></SectionTitle>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text">Reciepe Name*</span>
             </label>
@@ -22,13 +22,18 @@ const AddItems = () => {
               type="text"
               {...register("name")}
               placeholder="Reciepe Name"
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full"
             />
           </div>
-
-          <select
+          <div className="flex gap-6"> 
+            {/* category */}
+            <div className="form-control w-full my-6">
+            <label className="label">
+              <span className="label-text">Category*</span>
+            </label>
+            <select
             {...register("category")}
-            className="select select-bordered w-full max-w-xs"
+            className="select select-bordered w-full"
           >
             <option disabled selected>
               Select a Category
@@ -39,6 +44,20 @@ const AddItems = () => {
             <option value="dessert">Dessert</option>
             <option value="drinks">Drinks</option>
           </select>
+          </div>
+            {/* price */}
+            <div className="form-control w-full my-6">
+            <label className="label">
+              <span className="label-text">Price*</span>
+            </label>
+            <input
+              type="number"
+              {...register("price")}
+              placeholder="price"
+              className="input input-bordered w-full"
+            />
+          </div>
+          </div>
           <input type="submit" />
         </form>
       </div>
