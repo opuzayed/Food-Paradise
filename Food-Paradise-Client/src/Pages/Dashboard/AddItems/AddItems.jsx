@@ -1,9 +1,10 @@
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 
 const AddItems = () => {
     return (
         <div>
-            <h2>add iems</h2>
+            <SectionTitle heading={'add an item'} subHeading={"what's new"}></SectionTitle>
         </div>
     );
 };
