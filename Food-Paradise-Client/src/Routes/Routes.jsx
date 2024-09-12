@@ -12,6 +12,7 @@ import Secret from "../Pages/Shared/Secret/Secret";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/Dashboard/Cart/Cart";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AddItems from "../Pages/Dashboard/AddItems/AddItems";
 
 
 
@@ -50,12 +51,17 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
       path:'dashboard',
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children:[
+        //normal user routes
         {
           path:'cart',
           element:<Cart></Cart>
         },
 
-        //admin route
+        //admin only routes
+        {
+          path: 'addItems',
+          element: <AddItems></AddItems>
+        },
         {
           path:'users',
           element: <AllUsers></AllUsers>
