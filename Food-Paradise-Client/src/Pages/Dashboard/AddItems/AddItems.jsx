@@ -8,14 +8,14 @@ const AddItems = () => {
     console.log(data);
   };
   return (
-    <div className="mx-24">
+    <div>
       <SectionTitle
         heading={"add an item"}
         subHeading={"what's new"}
       ></SectionTitle>
-      <div >
+      <div className="mx-20 ">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-control w-full">
+          <div className="form-control w-full mb-4">
             <label className="label">
               <span className="label-text">Reciepe Name*</span>
             </label>
@@ -26,7 +26,7 @@ const AddItems = () => {
               className="input input-bordered w-full"
             />
           </div>
-          <div className="flex gap-6">
+          <div className="flex gap-6 mb-4">
             {/* category */}
             <div className="form-control w-full">
               <label className="label">
@@ -59,20 +59,20 @@ const AddItems = () => {
               />
             </div>
           </div>
-          <label className="form-control">
-            <div className="label">
+          <div className="form-control mb-4">
+            <label className="label">
               <span className="label-text">Recipe Details*</span>
-            </div>
+            </label>
             <textarea
               className="textarea textarea-bordered h-24"
               placeholder="Recipe Details"
               {...register("recipe", { required: true})}
             ></textarea>
-          </label>
-          <div className="form-control">
+          </div>
+          <div className="form-control mb-4">
           <input type="file" {...register("image", { required: true})} className="file-input w-full max-w-xs" />
           </div>
-          <button className="btn btn-outline btn-accent w-full">ADD ITEMS <FaUtensils></FaUtensils></button>
+          <button className="btn btn-outline btn-accent w-full font-bold">ADD ITEMS <FaUtensils></FaUtensils></button>
         </form>
       </div>
     </div>
