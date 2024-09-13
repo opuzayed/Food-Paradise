@@ -12,7 +12,11 @@ const AdminRoutes = ({children}) => {
 
     if(loading || isAdminLoading)
     {
-        return <span className="loading loading-ring loading-lg"></span>
+        return (
+            <div className="flex justify-center items-center h-screen">
+              <span className="loading loading-ring loading-lg"></span>
+            </div>
+          );
     }
 
     if(user && isAdmin)
