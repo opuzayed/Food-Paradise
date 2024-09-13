@@ -13,28 +13,28 @@ const AddItems = () => {
         heading={"add an item"}
         subHeading={"what's new"}
       ></SectionTitle>
-      <div className="mx-20 ">
-        <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="mx-20">
+        <form onSubmit={handleSubmit(onSubmit)} className="bg-orange-100">
           <div className="form-control w-full mb-4">
             <label className="label">
-              <span className="label-text">Reciepe Name*</span>
+              <span className="label-text text-sky-800 font-medium">Reciepe Name*</span>
             </label>
             <input
               type="text"
               {...register("name", { required: true})}
               placeholder="Recipe Name"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full bg-gray-700 text-white"
             />
           </div>
           <div className="flex gap-6 mb-4">
             {/* category */}
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text">Category*</span>
+                <span className="label-text text-sky-800 font-medium">Category*</span>
               </label>
               <select
                 {...register("category", { required: true})}
-                className="select select-bordered w-full"
+                className="select select-bordered w-full bg-gray-700 text-white"
               >
                 <option disabled selected>
                   Select a Category
@@ -49,28 +49,28 @@ const AddItems = () => {
             {/* price */}
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text">Price*</span>
+                <span className="label-text text-sky-800 font-medium">Price*</span>
               </label>
               <input
                 type="number"
                 {...register("price", { required: true})}
                 placeholder="price"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full bg-gray-700 text-white"
               />
             </div>
           </div>
           <div className="form-control mb-4">
             <label className="label">
-              <span className="label-text">Recipe Details*</span>
+              <span className="label-text text-sky-800 font-medium">Recipe Details*</span>
             </label>
             <textarea
-              className="textarea textarea-bordered h-24"
+              className="textarea textarea-bordered h-24 bg-gray-700 text-white"
               placeholder="Recipe Details"
               {...register("recipe", { required: true})}
             ></textarea>
           </div>
           <div className="form-control mb-4">
-          <input type="file" {...register("image", { required: true})} className="file-input w-full max-w-xs" />
+          <input type="file" {...register("image", { required: true})} className="file-input w-full max-w-xs bg-gray-700 text-white" />
           </div>
           <button className="btn btn-outline btn-accent w-full font-bold">ADD ITEMS <FaUtensils></FaUtensils></button>
         </form>
