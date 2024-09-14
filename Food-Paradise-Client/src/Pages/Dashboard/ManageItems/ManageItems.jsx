@@ -3,25 +3,29 @@ import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import useMenu from "../../../hooks/useMenu";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
+
+
 
 const ManageItems = () => {
-    const [menu] = useMenu();
+    const [menu, , refetch] = useMenu();
     const axiosSecure = useAxiosSecure();
 
-    const handleDeleteItem = item => {
+    const handleDeleteItem = (item) => {
       Swal.fire({
         title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        text: `You want to Delete ${item._id}`,
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, delete it!"
-      }).then(async (result) => {
+      }).then(async(result) => {
         if (result.isConfirmed) {
           const res = await axiosSecure.delete(`/menu/${item._id}`);
-          //console.log(res.data);
-          if(res.data.deletedCount > 0){
+          console.log(res.data);
+            if(res.data.deletedCount > 0){
+              refetch();
             Swal.fire({
               position: "top-end",
               icon: "success",
@@ -30,12 +34,7 @@ const ManageItems = () => {
               timer: 1500
             });
           }
-
-          // Swal.fire({
-          //   title: "Deleted!",
-          //   text: "Your file has been deleted.",
-          //   icon: "success"
-          // });
+          
         }
       });
     }
@@ -87,12 +86,13 @@ const ManageItems = () => {
                         ${item.price}
                     </td>
                     <td>
-                      <button
-                    onClick={() => handleMakeAdmin(user)}
+                    <Link to={`/dashboard/updateItem/${item._id}`}>
+                    <button
                     className="btn bg-orange-500 btn-sm"
                   >
                     <FaEdit className="text-white"></FaEdit>
                   </button>
+                    </Link>
                     </td>
                     <td>
                     <button
