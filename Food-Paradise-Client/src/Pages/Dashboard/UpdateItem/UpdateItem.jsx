@@ -4,7 +4,7 @@ import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 const UpdateItem = () => {
     return (
         <div>
-            <SectionTitle heading={"Update Item"} subHeading={"Refresh-info"}></SectionTitle>
+            <SectionTitle heading={"Update an Item"} subHeading={"Refresh-info"}></SectionTitle>
         </div>
     );
 };
