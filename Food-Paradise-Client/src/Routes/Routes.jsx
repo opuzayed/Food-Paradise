@@ -16,6 +16,7 @@ import AddItems from "../Pages/Dashboard/AddItems/AddItems";
 import AdminRoutes from "./AdminRoutes";
 import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
 import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 
 
@@ -58,6 +59,10 @@ import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
         {
           path:'cart',
           element:<Cart></Cart>
+        },
+        {
+          path : 'payment',
+          element : <Payment></Payment>
         },
 
         //admin only routes
