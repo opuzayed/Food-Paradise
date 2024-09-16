@@ -1,9 +1,14 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useState, useEffect } from 'react';
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useCart from "../../../hooks/useCart";
+
 
 const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
+    const axiosSecure = useAxiosSecure();
+    const [cart] = useCart();
     
     const [errorMessage, setErrorMessage] = useState('');  // State for handling errors
 
@@ -17,6 +22,10 @@ const CheckoutForm = () => {
         }, 100);  // 100ms delay to ensure CardElement is ready
       }
     }, [elements]);
+
+    useEffect(()=> {
+      axiosSecure.post('/create-payment-intent', )
+    },[])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
