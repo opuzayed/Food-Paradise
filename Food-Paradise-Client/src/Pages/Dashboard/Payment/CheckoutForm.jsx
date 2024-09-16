@@ -9,6 +9,9 @@ const CheckoutForm = () => {
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
     const [cart] = useCart();
+    const [clientSecret, setClientSecret] = useState('');
+
+    const totalPrice = cart.reduce((total, item) => total + item.price , 0)
     
     const [errorMessage, setErrorMessage] = useState('');  // State for handling errors
 
@@ -24,8 +27,12 @@ const CheckoutForm = () => {
     }, [elements]);
 
     useEffect(()=> {
-      axiosSecure.post('/create-payment-intent', )
-    },[])
+      axiosSecure.post('/create-payment-intent', {price : totalPrice})
+      .then(res => {
+        console.log(res.data.clientSecret);
+        setClientSecret(res.data.clientSecret);
+      });
+    },[axiosSecure, totalPrice]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
