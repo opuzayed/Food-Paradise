@@ -12,7 +12,7 @@ const CheckoutForm = () => {
     const [cart] = useCart();
     const [clientSecret, setClientSecret] = useState('');
     const {user} = useAuth();
-    const {transactionId, setTransactionId} = useState('');
+    const [transactionId, setTransactionId] = useState('');
 
     const totalPrice = cart.reduce((total, item) => total + item.price , 0)
     
@@ -83,6 +83,16 @@ const CheckoutForm = () => {
           {
             console.log('TransactionId : ', paymentIntent.id);
             setTransactionId(paymentIntent.id);
+
+            //SAVE THE PAYMENT IN THE DB
+            const payment = {
+              email : user.email,
+              price : totalPrice,
+              date : new Date(),
+              cartId : cart.map(item => item._id),
+              menuItemId : cart.map(item => item.menuId),
+              status : 'pending'
+            } 
           }
         }
     };
@@ -126,6 +136,7 @@ const CheckoutForm = () => {
         >
           Pay Now
         </button>
+        {transactionId && <p className="text-green-500 text-center"> Your Transaction ID : {transactionId} </p>}
       </form>
     );
 };
