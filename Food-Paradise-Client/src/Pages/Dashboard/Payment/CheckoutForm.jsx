@@ -78,6 +78,10 @@ const CheckoutForm = () => {
         }
         else{
           console.log("Payment Intent", paymentIntent);
+          if(paymentIntent.status === 'succeeded')
+          {
+            console.log('TransactionId : ', paymentIntent.id);
+          }
         }
     };
 
