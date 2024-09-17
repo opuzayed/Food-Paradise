@@ -4,6 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
+console.log('client key',import.meta.env.VITE_Payment_Gateway_PK);
 
 const Payment = () => {
     return (

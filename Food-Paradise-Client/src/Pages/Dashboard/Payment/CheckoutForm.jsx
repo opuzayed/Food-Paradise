@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useState, useEffect } from 'react';
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useCart from "../../../hooks/useCart";
+import useAuth from "../../../hooks/useAuth";
 
 
 const CheckoutForm = () => {
@@ -10,10 +11,11 @@ const CheckoutForm = () => {
     const axiosSecure = useAxiosSecure();
     const [cart] = useCart();
     const [clientSecret, setClientSecret] = useState('');
+    const {user} = useAuth();
 
     const totalPrice = cart.reduce((total, item) => total + item.price , 0)
     
-    const [errorMessage, setErrorMessage] = useState('');  // State for handling errors
+    const [errorMessage, setErrorMessage] = useState('');  //State for handling errors
 
     // Automatically focus on CardElement when component mounts
     useEffect(() => {
@@ -27,7 +29,7 @@ const CheckoutForm = () => {
     }, [elements]);
 
     useEffect(()=> {
-      axiosSecure.post('/create-payment-intent', {price : totalPrice})
+      axiosSecure.post('/create-payment-intent', {price: totalPrice})
       .then(res => {
         console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
@@ -59,6 +61,17 @@ const CheckoutForm = () => {
           console.log('payment method', paymentMethod);
           setErrorMessage('');  // Clear any previous errors if payment method is successful
         }
+
+        //confirm payment
+        const{paymentIntent, error:confirmError} = await stripe.confirmCardPayment(clientSecret,{
+          payment_method : {
+            card : card,
+            billing_details : {
+              name : user?.displayName || 'anonymous',
+              email : user?.email || 'anonymous'
+            }
+          }
+        })
     };
 
     return (
@@ -95,7 +108,7 @@ const CheckoutForm = () => {
         {/* Pay Button */}
         <button
           type="submit"
-          disabled={!stripe}
+          disabled={!stripe || !clientSecret}
           className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out disabled:bg-gray-400 disabled:cursor-not-allowed"
         >
           Pay Now
