@@ -12,6 +12,7 @@ const CheckoutForm = () => {
     const [cart] = useCart();
     const [clientSecret, setClientSecret] = useState('');
     const {user} = useAuth();
+    const {transactionId, setTransactionId} = useState('');
 
     const totalPrice = cart.reduce((total, item) => total + item.price , 0)
     
@@ -81,6 +82,7 @@ const CheckoutForm = () => {
           if(paymentIntent.status === 'succeeded')
           {
             console.log('TransactionId : ', paymentIntent.id);
+            setTransactionId(paymentIntent.id);
           }
         }
     };
