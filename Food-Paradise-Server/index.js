@@ -2,8 +2,11 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const jwt = require('jsonwebtoken');
-const stripe = require('stripe')('process.env.STRIPE_SECRET_KEY');
 require("dotenv").config();
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); 
+console.log('Stripe Secret Key:', process.env.STRIPE_SECRET_KEY);
+
+
 const port = process.env.PORT || 5000;
 
 //middleware
@@ -30,7 +33,8 @@ async function run() {
     const menuCollection = client.db("foodDb").collection("menu");
     const reviewCollection = client.db("foodDb").collection("reviews");
     const cartCollection = client.db("foodDb").collection("carts");
-
+    const paymentCollection = client.db("foodDb").collection("payments");
+    
     //jwt related api
 
     app.post("/jwt", async (req, res) => {
@@ -193,14 +197,16 @@ async function run() {
     app.post("/create-payment-intent", async (req, res) => {
       const {price} = req.body;
       const amount = parseInt(price * 100);
+      console.log(amount, 'amount inside the intent');
       const paymentIntent = await stripe.paymentIntents.create({
         amount : amount,
         currency : "usd",
-        payment_method_types : ['card', 'link']
+        payment_method_types : ['card','link'] //, 'link'
       });
       res.send({
-        clientSecret : paymentIntent.client_secret,
+        clientSecret: paymentIntent.client_secret,
       });
+      
     });
 
     // Send a ping to confirm a successful connection
