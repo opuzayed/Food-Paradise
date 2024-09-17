@@ -63,7 +63,7 @@ const CheckoutForm = () => {
         }
 
         //confirm payment
-        const{paymentIntent, error:confirmError} = await stripe.confirmCardPayment(clientSecret,{
+        const {paymentIntent, error:confirmError} = await stripe.confirmCardPayment(clientSecret,{
           payment_method : {
             card : card,
             billing_details : {
@@ -71,7 +71,14 @@ const CheckoutForm = () => {
               email : user?.email || 'anonymous'
             }
           }
-        })
+        });
+
+        if(confirmError){
+          console.log('Confirm Error');
+        }
+        else{
+          console.log("Payment Intent", paymentIntent);
+        }
     };
 
     return (
