@@ -1,12 +1,24 @@
-import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import { useQuery } from "@tanstack/react-query";
+
 import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const PaymentHistory = () => {
     const {user} = useAuth();
+    const axiosSecure = useAxiosSecure();
+
+        const {data: payments} = useQuery({
+        queryKey: ['payments', user.email],
+        queryFn: async () => {
+            const res = await useAxiosSecure.get(`/payments/${user.email}`);
+            return res.data;
+        }
+    });
+
     return (
         <div>
-            <SectionTitle heading={"Payment History"} subHeading={"At a Glance"}></SectionTitle>
+            
         </div>
     );
 };
