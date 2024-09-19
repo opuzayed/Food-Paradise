@@ -231,7 +231,8 @@ async function run() {
     //stats or analytics
     app.get("/admin-stats", async (req, res) => {
       const user = await userCollection.estimatedDocumentCount();
-      res.send({user})
+      const menuItems = await menuCollection.estimatedDocumentCount();
+      res.send({user, menuItems})
     });
 
 
