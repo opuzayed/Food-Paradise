@@ -19,7 +19,7 @@ import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PatmentHistory/PaymentHistory";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
-import AdminHome from "../Pages/Dashboard/AdminHome/AsminHome";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 
 
 
