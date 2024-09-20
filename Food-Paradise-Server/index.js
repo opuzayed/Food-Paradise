@@ -230,9 +230,22 @@ async function run() {
 
     //stats or analytics
     app.get("/admin-stats", async (req, res) => {
-      const user = await userCollection.estimatedDocumentCount();
+      const users = await userCollection.estimatedDocumentCount();
       const menuItems = await menuCollection.estimatedDocumentCount();
-      res.send({user, menuItems})
+      const orders = await paymentCollection.estimatedDocumentCount();
+      const result = await paymentCollection.aggregate([
+        {
+          $group: {
+            _id: null,
+            totalRevenue: {
+              $sum: '$price'
+            }
+          }
+        }
+      ]).toArray();
+      const revenue= result.length > 0 ? result[0].totalRevenue : 0;
+     
+      res.send({users, menuItems, orders, revenue})
     });
 
 
