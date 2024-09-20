@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { FaDollarSign, FaUsers } from "react-icons/fa";
+import { FaDollarSign, FaShoppingCart, FaUsers } from "react-icons/fa";
 
 const AsminHome = () => {
   const { user } = useAuth();
@@ -49,15 +49,10 @@ const AsminHome = () => {
 
         <div className="stat">
           <div className="stat-figure text-secondary">
-            <div className="avatar online">
-              <div className="w-16 rounded-full">
-                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-              </div>
-            </div>
+            <FaShoppingCart className="text-6xl font-bold"></FaShoppingCart>
           </div>
-          <div className="stat-value">86%</div>
-          <div className="stat-title">Tasks done</div>
-          <div className="stat-desc text-secondary">31 tasks remaining</div>
+          <div className="stat-title">ORDERS</div>
+          <div className="stat-value text-orange-500">{stats.orders}</div>
         </div>
       </div>
     </div>
