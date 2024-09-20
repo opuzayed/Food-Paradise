@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { FaDollarSign, FaShoppingCart, FaUsers } from "react-icons/fa";
+import { FaDollarSign, FaListAlt, FaShoppingCart, FaUsers } from "react-icons/fa";
 
 const AsminHome = () => {
   const { user } = useAuth();
@@ -33,7 +33,7 @@ const AsminHome = () => {
       <div className="stats shadow">
         <div className="stat">
           <div className="stat-figure text-primary">
-            <FaDollarSign className="text-6xl font-bold"></FaDollarSign>
+            <FaDollarSign className="text-4xl font-bold"></FaDollarSign>
           </div>
           <div className="stat-title">REVENUE</div>
           <div className="stat-value text-primary">{stats ? `$${stats.revenue}` : "Loading..."}</div>
@@ -41,7 +41,7 @@ const AsminHome = () => {
 
         <div className="stat">
           <div className="stat-figure text-secondary">
-            <FaUsers className="text-6xl font-bold"></FaUsers>
+            <FaUsers className="text-4xl font-bold"></FaUsers>
           </div>
           <div className="stat-title">USERS</div>
           <div className="stat-value text-secondary">{stats.users}</div>
@@ -49,7 +49,15 @@ const AsminHome = () => {
 
         <div className="stat">
           <div className="stat-figure text-secondary">
-            <FaShoppingCart className="text-6xl font-bold"></FaShoppingCart>
+            <FaShoppingCart className="text-4xl font-bold"></FaShoppingCart>
+          </div>
+          <div className="stat-title">ORDERS</div>
+          <div className="stat-value text-orange-500">{stats.orders}</div>
+        </div>
+
+        <div className="stat">
+          <div className="stat-figure text-secondary">
+            <FaListAlt className="text-4xl font-bold"></FaListAlt>
           </div>
           <div className="stat-title">ORDERS</div>
           <div className="stat-value text-orange-500">{stats.orders}</div>
