@@ -253,6 +253,14 @@ async function run() {
       const result= await paymentCollection.aggregate([
         {
           $unwind : '$menuItemIds'
+        },
+        {
+          $lookup: {
+            from: 'menu',
+            localField: 'menuItemIds',
+            foreignField: '_id',
+            as: 'menuItems'
+          }
         }
       ]).toArray();
       res.send(result);
