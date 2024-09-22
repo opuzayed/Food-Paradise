@@ -261,7 +261,10 @@ async function run() {
             foreignField: '_id',
             as: 'menuItems'
           }
-        }
+        },
+        {
+          $unwind: '$menuItems'
+        },
       ]).toArray();
       res.send(result);
     });
