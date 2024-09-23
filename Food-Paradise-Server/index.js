@@ -7,6 +7,8 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const formData = require("form-data");
 const Mailgun = require("mailgun.js");
 const mailgun = new Mailgun(formData);
+const mg = mailgun.client({username: 'api', 
+  key: process.env.MAILGUN_API_KEY || 'key-yourkeyhere'});
 
 const port = process.env.PORT || 5000;
 
@@ -233,6 +235,18 @@ async function run() {
         },
       };
       const deleteResult = await cartCollection.deleteMany(query);
+
+      //send userEmail about payment confirmation
+      
+      mg.messages.create('sandbox-123.mailgun.org', {
+        from: "Excited User <mailgun@sandbox40f6701332d2477d9dd69fdfe3afa2a2.mailgun.org>",
+        to: ["test@example.com"],
+        subject: "Hello",
+        text: "Testing some Mailgun awesomeness!",
+        html: "<h1>Testing some Mailgun awesomeness!</h1>"
+      })
+      .then(msg => console.log(msg)) // logs response data
+      .catch(err => console.log(err)); // logs any error
       res.send({ paymentResult, deleteResult });
     });
 
