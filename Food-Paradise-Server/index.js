@@ -237,13 +237,18 @@ async function run() {
       const deleteResult = await cartCollection.deleteMany(query);
 
       //send userEmail about payment confirmation
-      
-      mg.messages.create('sandbox-123.mailgun.org', {
+
+      mg.messages.create(process.env.MAIL_SENDING_DOMAIN, {
         from: "Excited User <mailgun@sandbox40f6701332d2477d9dd69fdfe3afa2a2.mailgun.org>",
-        to: ["test@example.com"],
-        subject: "Hello",
-        text: "Testing some Mailgun awesomeness!",
-        html: "<h1>Testing some Mailgun awesomeness!</h1>"
+        to: ["zayedopu4933@gmail.com"],
+        subject: "Food-Paradise Order Confirmation",
+        html: `
+          <div>
+          <h2>Thank You For Your Order</h2>
+          <h5>Your Transaction ID : <strong> ${payment.transactionId}</strong></h5>
+          <p>Thank you again. We would like to get your feedback about our food</p>
+          </div>
+        `
       })
       .then(msg => console.log(msg)) // logs response data
       .catch(err => console.log(err)); // logs any error
