@@ -6,6 +6,7 @@ import { FaDollarSign, FaListAlt, FaShoppingCart, FaUsers } from "react-icons/fa
 const AsminHome = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+
   const { data: stats, isLoading } = useQuery({
     queryKey: ["admin-stats"],
     queryFn: async () => {
@@ -13,6 +14,14 @@ const AsminHome = () => {
       console.log("revenue", res.data);
       return res.data;
     },
+  });
+
+  const {data: chartData} = useQuery({
+          queryKey: ['order-stats'],
+          queryFn: async () => {
+            const res = await axiosSecure.get('/order-stats');
+            return res.data;
+          }
   });
 
   if(isLoading){
@@ -26,7 +35,7 @@ const AsminHome = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold font-serif text-cyan-500">
+      <h2 className="text-2xl font-bold font-serif text-cyan-500 mb-5">
         <span>Hi! Welcome </span>
         {user?.displayName ? user.displayName : "Back"}
       </h2>
@@ -49,18 +58,18 @@ const AsminHome = () => {
 
         <div className="stat">
           <div className="stat-figure text-secondary">
-            <FaShoppingCart className="text-4xl font-bold"></FaShoppingCart>
+            <FaListAlt className="text-4xl font-bold"></FaListAlt>
           </div>
-          <div className="stat-title">ORDERS</div>
-          <div className="stat-value text-orange-500">{stats.orders}</div>
+          <div className="stat-title">MENU ITEMS</div>
+          <div className="stat-value text-orange-500">{stats.menuItems}</div>
         </div>
 
         <div className="stat">
-          <div className="stat-figure text-secondary">
-            <FaListAlt className="text-4xl font-bold"></FaListAlt>
+          <div className="stat-figure text-cyan-500">
+          <FaShoppingCart className="text-4xl font-bold"></FaShoppingCart>
           </div>
           <div className="stat-title">ORDERS</div>
-          <div className="stat-value text-orange-500">{stats.orders}</div>
+          <div className="stat-value text-cyan-500">{stats.orders}</div>
         </div>
       </div>
     </div>
