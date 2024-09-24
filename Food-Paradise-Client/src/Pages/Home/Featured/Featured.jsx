@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import featuredImg from "../../../assets/home/featured.jpg";
 import ('./featured.css');
@@ -14,7 +15,7 @@ const Featured = () => {
                     <p>Aug 20, 2024</p>
                     <p className="uppercase">Where Can I get some</p>
                     <p>Fuska, also known as Phuchka or Puchka, is a beloved street food originating from the Indian subcontinent, particularly popular in Bangladesh and Kolkata, India.It consists of crispy, hollow puris filled with a spicy and tangy mixture of mashed potatoes, chickpeas, and tamarind water.Fuska is enjoyed as a snack and is often sold by street vendors.</p>
-                    <button className="btn btn-outline btn-info uppercase border-0 border-b-4 mt-2">Order Now</button>
+                    <Link to='/order/salad'><button className="btn btn-outline btn-info uppercase border-0 border-b-4 mt-2">Order Now</button></Link>
                 </div>
             </div>
         </section>

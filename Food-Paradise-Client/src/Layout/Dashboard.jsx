@@ -49,16 +49,6 @@ const Dashboard = () => {
                   <FaListAlt className="mr-2"></FaListAlt>MANAGE ITEMS
                 </NavLink>
               </li>
-
-              <li>
-                <NavLink
-                  to="/dashboard/bookings"
-                  className="flex items-center"
-                >
-                  <FaBook className="mr-2"></FaBook>MANAGE BOOKINGS
-                </NavLink>
-              </li>
-
               <li>
                 <NavLink to="/dashboard/users" className="flex items-center text-white">
                   <FaUsers className="mr-2"></FaUsers>ALL USERS
@@ -73,14 +63,14 @@ const Dashboard = () => {
                 </NavLink>
               </li>
 
-              <li>
+              {/* <li>
                 <NavLink
                   to="/dashboard/reservation"
                   className="flex items-center"
                 >
                   <FaCalendar className="mr-2"></FaCalendar>RESERVATION
                 </NavLink>
-              </li>
+              </li> */}
 
               <li>
                 <NavLink
@@ -101,18 +91,18 @@ const Dashboard = () => {
                 </NavLink>
               </li>
 
-              <li>
+              {/* <li>
                 <NavLink to="/dashboard/review" className="flex items-center ">
                   <FaComment className="mr-2"></FaComment>ADD REVIEW
                 </NavLink>
-              </li>
+              </li> */}
 
-              <li>
+              {/* <li>
                 <NavLink to="/dashboard/booking" className="flex items-center ">
                   <FaClipboardList className="mr-2"></FaClipboardList>MY
                   BOOKINGS
                 </NavLink>
-              </li>
+              </li> */}
             </>
           )}
 
@@ -129,11 +119,6 @@ const Dashboard = () => {
           <li>
             <NavLink to="/order/salad" className="flex items-center">
               <FaClipboardList className="mr-2"></FaClipboardList>MENU
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact" className="flex items-center">
-              <FaEnvelope className="mr-2"></FaEnvelope>CONTACT
             </NavLink>
           </li>
         </ul>

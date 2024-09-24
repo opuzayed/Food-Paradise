@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import MenuItem from '../../Shared/MenuItem/MenuItem';
 import useMenu from '../../../hooks/useMenu';
+import { Link } from 'react-router-dom';
 
 const PopularMenu = () => {
     
@@ -16,7 +17,7 @@ const PopularMenu = () => {
                     popularItem.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
                 }
             </div>
-            <button className="btn btn-outline btn-info uppercase border-0 border-b-4 mt-6 block mx-auto">View Full Menu</button>
+            <Link to='/menu'><button className="btn btn-outline btn-info uppercase border-0 border-b-4 mt-6 block mx-auto">View Full Menu</button></Link>
         </section>
     );
 };

@@ -4,6 +4,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import { FaShoppingCart } from 'react-icons/fa';
 import useCart from "../../../hooks/useCart";
 import useAdmin from "../../../hooks/useAdmin";
+import logo from "../../../../public/logo.png";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -124,7 +125,10 @@ const NavBar = () => {
               {navOptions}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Food Paradise</a>
+          <a className="btn btn-ghost text-xl">
+            <img src={logo} alt="logo" className="h-8 mr-1"/>
+            Food Paradise
+            </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>

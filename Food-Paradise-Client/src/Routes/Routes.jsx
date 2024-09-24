@@ -8,7 +8,6 @@ import Order from "../Pages/Order/Order/Order";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
-import Secret from "../Pages/Shared/Secret/Secret";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/Dashboard/Cart/Cart";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
@@ -48,10 +47,7 @@ import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
           path:'signup',
           element : <SignUp></SignUp>
         },
-        {
-          path:'secret',
-          element:<PrivateRoute><Secret></Secret></PrivateRoute>
-        }
+        
       ]
     },
     {
