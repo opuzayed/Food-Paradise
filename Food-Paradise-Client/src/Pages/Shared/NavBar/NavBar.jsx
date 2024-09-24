@@ -125,10 +125,14 @@ const NavBar = () => {
               {navOptions}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">
-            <img src={logo} alt="logo" className="h-8 mr-1"/>
+          {/* <a className="text-xl flex items-center">
+            <img src={logo} alt="logo" className="h-16 mr-1"/>
             Food Paradise
-            </a>
+            </a> */}
+            <Link to="/" className="text-xl flex items-center">
+          <img src={logo} alt="Logo" className="h-14 mr-1" />
+          <span className="text-3xl font-bold text-lime-500">Food Paradise</span>
+        </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
