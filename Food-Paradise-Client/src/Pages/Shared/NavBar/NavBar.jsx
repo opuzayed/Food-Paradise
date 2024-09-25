@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../../hooks/useCart";
 import useAdmin from "../../../hooks/useAdmin";
 import logo from "../../../../public/logo.png";
+import "./cart.css";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -29,9 +30,9 @@ const NavBar = () => {
             isActive ? `${linkStyles} ${activeLinkStyles}` : `${linkStyles}`
           }
           style={({ isActive }) => ({
-            backgroundColor: 'transparent',
-            color: isActive ? '#28A63A' : '',
-            textDecoration: isActive ? 'underline' : 'none',
+            backgroundColor: "transparent",
+            color: isActive ? "#28A63A" : "",
+            textDecoration: isActive ? "underline" : "none",
           })}
         >
           Home
@@ -44,9 +45,9 @@ const NavBar = () => {
             isActive ? `${linkStyles} ${activeLinkStyles}` : `${linkStyles}`
           }
           style={({ isActive }) => ({
-            backgroundColor: 'transparent',
-            color: isActive ? '#28A63A' : '',
-            textDecoration: isActive ? 'underline' : 'none',
+            backgroundColor: "transparent",
+            color: isActive ? "#28A63A" : "",
+            textDecoration: isActive ? "underline" : "none",
           })}
         >
           Our Menu
@@ -59,9 +60,9 @@ const NavBar = () => {
             isActive ? `${linkStyles} ${activeLinkStyles}` : `${linkStyles}`
           }
           style={({ isActive }) => ({
-            backgroundColor: 'transparent',
-            color: isActive ? '#28A63A' : '',
-            textDecoration: isActive ? 'underline' : 'none',
+            backgroundColor: "transparent",
+            color: isActive ? "#28A63A" : "",
+            textDecoration: isActive ? "underline" : "none",
           })}
         >
           Order Food
@@ -74,9 +75,9 @@ const NavBar = () => {
             isActive ? `${linkStyles} ${activeLinkStyles}` : `${linkStyles}`
           }
           style={({ isActive }) => ({
-            backgroundColor: 'transparent',
-            color: isActive ? '#28A63A' : '',
-            textDecoration: isActive ? 'underline' : 'none',
+            backgroundColor: "transparent",
+            color: isActive ? "#28A63A" : "",
+            textDecoration: isActive ? "underline" : "none",
           })}
         >
           SignUp
@@ -90,9 +91,9 @@ const NavBar = () => {
               isActive ? `${linkStyles} ${activeLinkStyles}` : `${linkStyles}`
             }
             style={({ isActive }) => ({
-              backgroundColor: 'transparent',
-              color: isActive ? '#28A63A' : '',
-              textDecoration: isActive ? 'underline' : 'none',
+              backgroundColor: "transparent",
+              color: isActive ? "#28A63A" : "",
+              textDecoration: isActive ? "underline" : "none",
             })}
           >
             Dashboard
@@ -107,32 +108,31 @@ const NavBar = () => {
               isActive ? `${linkStyles} ${activeLinkStyles}` : `${linkStyles}`
             }
             style={({ isActive }) => ({
-              backgroundColor: 'transparent',
-              color: isActive ? '#28A63A' : '',
-              textDecoration: isActive ? 'underline' : 'none',
+              backgroundColor: "transparent",
+              color: isActive ? "#28A63A" : "",
+              textDecoration: isActive ? "underline" : "none",
             })}
           >
             Dashboard
           </NavLink>
         </li>
       )}
-      <li className="flex items-center justify-center">
-        <NavLink to="/dashboard/cart">
-          <button className="btn btn-xs">
-            <FaShoppingCart className="text-lg text-green-400" />
-            <div className="badge badge-secondary font-bold">+{cart.length}</div>
-          </button>
+      {/* button appearence not showing */}
+      <li className="flex items-center justify-center bg-[#2F855A] px-1 rounded-lg hover:bg-[#276749] cursor-pointer">
+        <NavLink
+          to="/dashboard/cart"
+          className="flex items-center no-button-styles"
+        >
+          <FaShoppingCart className="text-lg text-green-400" />
+          <span className="badge badge-secondary font-bold text-white bg-[#2F855A] border-sky-400">
+            +{cart.length}
+          </span>
         </NavLink>
       </li>
-
       {user ? (
         <>
           <li className="flex items-center justify-center font-bold text-white hover:text-[#28A63A] m-2">
-           
-              
-              {user?.displayName}
-            
-            
+            {user?.displayName}
           </li>
           <li className="flex items-center justify-center">
             <button
@@ -144,7 +144,7 @@ const NavBar = () => {
           </li>
         </>
       ) : (
-        <li className="flex items-center justify-center">
+        <li className="flex items-center justify-center m-2 ">
           <NavLink to="/login" className={linkStyles}>
             Login
           </NavLink>

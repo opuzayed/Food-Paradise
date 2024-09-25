@@ -1,0 +1,13 @@
+/* General style for the badge */
+.no-button-styles {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+}
+
+.no-button-styles:hover {
+  background: none !important;
+  box-shadow: none !important;
+}
