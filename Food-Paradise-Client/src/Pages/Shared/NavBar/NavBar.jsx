@@ -127,10 +127,12 @@ const NavBar = () => {
 
       {user ? (
         <>
-          <li className="flex items-center justify-center">
-            <span className="font-bold text-white cursor-default transition-colors duration-200">
+          <li className="flex items-center justify-center font-bold text-white hover:text-[#28A63A] m-2">
+           
+              
               {user?.displayName}
-            </span>
+            
+            
           </li>
           <li className="flex items-center justify-center">
             <button
