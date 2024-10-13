@@ -6,10 +6,8 @@
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [Running in VS Code](#running-in-vs-code)
-- [Contributing](#contributing)
-- [License](#license)
+
+
 
 ## Features
 
