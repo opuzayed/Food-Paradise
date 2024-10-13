@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCart from "../../hooks/useCart";
+import CustomButton from "../CustomButton/CustomButton";
 
 const FoodCard = ({ item }) => {
 
@@ -60,19 +61,20 @@ const FoodCard = ({ item }) => {
     }
 
     return (
-        <div className="card bg-base-100 w-96 shadow-xl">
-            <figure className="px-10 pt-10">
+        <div className="card bg-base-100 w-full shadow-card-shadow transition-all duration-300 hover:bg-sky-100">
+            <figure className="px-5 pt-5 ">
                 <img
                     src={image}
                     alt="Food"
-                    className="rounded-xl" />
+                    className="rounded-xl w-full h-[180px] object-cover" />
             </figure>
             <p className="bg-slate-900 text-white absolute right-14 my-14 px-1 py-1">${price}</p>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
                 <p>{recipe}</p>
                 <div className="card-actions">
-                    <button onClick={handleAddToCart} className="btn btn-outline border-orange-300 btn-info uppercase border-0 border-b-4">Add To Cart</button>
+                    {/* <button onClick={handleAddToCart} className="btn btn-outline border-orange-300 btn-info uppercase border-0 border-b-4">Add To Cart</button> */}
+                    <CustomButton btnText={'Add To Cart'} onClick={handleAddToCart}></CustomButton>
                 </div>
             </div>
         </div>

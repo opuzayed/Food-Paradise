@@ -44,7 +44,7 @@ const AsminHome = () => {
     },
   });
 
-  //custom shape for barChart
+  // Custom shape for BarChart
   const getPath = (x, y, width, height) => {
     return `M${x},${y + height}C${x + width / 3},${y + height} ${
       x + width / 2
@@ -61,7 +61,7 @@ const AsminHome = () => {
     return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
   };
 
-  //custom shape for Pie-Chart
+  // Custom shape for Pie-Chart labels
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
     cx,
@@ -69,7 +69,7 @@ const AsminHome = () => {
     midAngle,
     innerRadius,
     outerRadius,
-    percent
+    percent,
   }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -88,17 +88,9 @@ const AsminHome = () => {
     );
   };
 
-  const pieChartData = chartData.map(data => {
-    return {name: data.category, value: data.revenue}
+  const pieChartData = chartData.map((data) => {
+    return { name: data.category, value: data.revenue };
   });
-
-  //   if(isLoading){
-  //     return (
-  //         <div className="flex justify-center items-center h-screen">
-  //           <span className="loading loading-ring loading-lg"></span>
-  //         </div>
-  //       );
-  // }
 
   return (
     <div>
@@ -106,18 +98,20 @@ const AsminHome = () => {
         <span>Hi! Welcome </span>
         {user?.displayName ? user.displayName : "Back"}
       </h2>
-      <div className="stats shadow">
+
+      {/* Stats Section */}
+      <div className="stats stats-vertical lg:stats-horizontal shadow">
         <div className="stat">
           <div className="stat-figure text-primary">
-            <FaDollarSign className="text-4xl font-bold"></FaDollarSign>
+            <FaDollarSign className="text-4xl font-bold" />
           </div>
           <div className="stat-title">REVENUE</div>
-          <div className="stat-value text-primary">${stats.revenue} </div>
+          <div className="stat-value text-primary">${stats.revenue}</div>
         </div>
 
         <div className="stat">
           <div className="stat-figure text-secondary">
-            <FaUsers className="text-4xl font-bold"></FaUsers>
+            <FaUsers className="text-4xl font-bold" />
           </div>
           <div className="stat-title">USERS</div>
           <div className="stat-value text-secondary">{stats.users}</div>
@@ -125,7 +119,7 @@ const AsminHome = () => {
 
         <div className="stat">
           <div className="stat-figure text-secondary">
-            <FaListAlt className="text-4xl font-bold"></FaListAlt>
+            <FaListAlt className="text-4xl font-bold" />
           </div>
           <div className="stat-title">MENU ITEMS</div>
           <div className="stat-value text-orange-500">{stats.menuItems}</div>
@@ -133,51 +127,56 @@ const AsminHome = () => {
 
         <div className="stat">
           <div className="stat-figure text-cyan-500">
-            <FaShoppingCart className="text-4xl font-bold"></FaShoppingCart>
+            <FaShoppingCart className="text-4xl font-bold" />
           </div>
           <div className="stat-title">ORDERS</div>
           <div className="stat-value text-cyan-500">{stats.orders}</div>
         </div>
       </div>
-      <div className="flex my-10">
-        <div className="w-1/2">
-          <BarChart
-            width={500}
-            height={300}
-            data={chartData}
-            margin={{
-              top: 20,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="category" />
-            <YAxis />
-            <Bar
-              dataKey="quantity"
-              fill="#8884d8"
-              shape={<TriangleBar />}
-              label={{ position: "top" }}
+
+      {/* Charts Section */}
+      <div className="flex flex-wrap my-10">
+        {/* Bar Chart */}
+        <div className="w-full lg:w-1/2 mb-10 lg:mb-0">
+          <ResponsiveContainer width="100%" height={400}>
+            <BarChart
+              data={chartData}
+              margin={{
+                top: 20,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
             >
-              {chartData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={colors[index % 6]} />
-              ))}
-            </Bar>
-          </BarChart>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="category" />
+              <YAxis />
+              <Bar
+                dataKey="quantity"
+                fill="#8884d8"
+                shape={<TriangleBar />}
+                label={{ position: "top" }}
+              >
+                {chartData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={colors[index % 5]} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
         </div>
-        <div className="w-1/2">
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart width={400} height={400}>
-            <Legend></Legend>
+
+        {/* Pie Chart */}
+        <div className="w-full lg:w-1/2">
+          <ResponsiveContainer width="100%" height={400}>
+            <PieChart>
+              <Legend verticalAlign="bottom" height={42} />
               <Pie
                 data={pieChartData}
                 cx="50%"
                 cy="50%"
                 labelLine={false}
                 label={renderCustomizedLabel}
-                outerRadius={80}
+                outerRadius={100}
                 fill="#8884d8"
                 dataKey="value"
               >
@@ -191,6 +190,7 @@ const AsminHome = () => {
             </PieChart>
           </ResponsiveContainer>
         </div>
+
       </div>
     </div>
   );

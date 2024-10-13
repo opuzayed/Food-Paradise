@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { FaUtensils } from "react-icons/fa";
 import { useRef, useState } from "react";
+import CustomButton from "../../../Components/CustomButton/CustomButton";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -99,10 +100,10 @@ const UpdateItem = () => {
   };
 
   return (
-    <div>
-      <SectionTitle heading={"Update an Item"} subHeading={"Refresh-info"}></SectionTitle>
-      <div className="mx-20">
-        <form onSubmit={handleSubmit(onSubmit)} className="bg-orange-100 p-6 rounded-lg shadow-lg">
+    <div className="px-4 sm:px-6 lg:px-20">
+      <SectionTitle heading={"Update an Item"} subHeading={"Refresh-info"} />
+      <div className="mx-auto max-w-3xl">
+        <form onSubmit={handleSubmit(onSubmit)} className="p-6 rounded-lg shadow-2xl">
           {/* Recipe Name */}
           <div className="form-control w-full mb-4">
             <label className="label">
@@ -121,8 +122,8 @@ const UpdateItem = () => {
           </div>
 
           {/* Category and Price */}
-          <div className="flex gap-6 mb-4">
-            <div className="form-control w-full">
+          <div className="flex flex-col sm:flex-row sm:gap-6 mb-4">
+            <div className="form-control w-full mb-4 sm:mb-0">
               <label className="label">
                 <span className="label-text text-sky-800 font-medium">Category*</span>
               </label>
@@ -131,9 +132,7 @@ const UpdateItem = () => {
                 {...register("category", { required: "Category is required" })}
                 className={`select select-bordered w-full ${errors.category ? 'border-red-500' : 'bg-gray-700'} text-white`}
               >
-                <option disabled value="default">
-                  Select a Category
-                </option>
+                <option disabled value="default">Select a Category</option>
                 <option value="salad">Salad</option>
                 <option value="pizza">Pizza</option>
                 <option value="soup">Soup</option>
@@ -196,9 +195,13 @@ const UpdateItem = () => {
           </div>
 
           {/* Submit Button */}
-          <button className="btn btn-outline btn-accent w-full font-bold">
-            UPDATE MENU ITEM <FaUtensils />
-          </button>
+          <div className="text-center">
+            <CustomButton 
+              btnText={'UPDATE MENU ITEM'} 
+              icon={<FaUtensils className="ms-2"/>} 
+              className="w-full md:max-w-xs"
+            />
+          </div>
         </form>
       </div>
     </div>

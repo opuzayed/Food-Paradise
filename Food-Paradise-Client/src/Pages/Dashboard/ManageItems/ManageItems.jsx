@@ -36,12 +36,12 @@ const ManageItems = () => {
   };
 
   return (
-    <div className="p-4 md:p-8 lg:p-12 xl:p-16">
+    <div className="my-10 mx-4 sm:mx-6 md:mx-8 lg:mx-10">
       <SectionTitle heading={"Manage All Items"} subHeading={"Hurry Up"} />
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+      <div className="overflow-x-auto w-500px lg:w-full rounded-lg shadow-border">
+        <table className="min-w-full bg-white border-0 rounded-xl overflow-hidden shadow-border">
           {/* Head */}
-          <thead className="bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white border-b border-gray-300">
+          <thead className="text-black border-b border-gray-200">
             <tr>
               <th className="p-4 text-center font-semibold">#</th>
               <th className="p-4 text-center font-semibold">ITEM IMAGE</th>
@@ -55,7 +55,7 @@ const ManageItems = () => {
             {menu.map((item, index) => (
               <tr
                 key={item._id}
-                className="relative transition-transform duration-300 transform hover:scale-105 hover:shadow-xl hover:bg-gradient-to-r hover:from-gray-100 hover:to-cyan-200"
+                className="transition-all duration-300 hover:bg-sky-100 border-b last:border-b-0 border-gray-200"
               >
                 <td className="p-4 text-center text-lg font-semibold">{index + 1}</td>
                 <td className="p-4 text-center">
@@ -75,7 +75,7 @@ const ManageItems = () => {
                 <td className="p-4 text-center text-lg font-semibold">${item.price.toFixed(2)}</td>
                 <td className="p-4 text-center">
                   <Link to={`/dashboard/updateItem/${item._id}`}>
-                    <button className="btn bg-blue-600 hover:bg-blue-700 text-white btn-sm rounded-full border-none transition-all duration-300">
+                    <button className="btn bg-slate-800 hover:bg-slate-800 text-white btn-sm rounded-full border-none transition-all duration-300">
                       <FaEdit />
                     </button>
                   </Link>

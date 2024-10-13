@@ -1,0 +1,11 @@
+@media screen and (max-width:767px){
+    .swiper-button-prev:after,.swiper-button-next:after{
+        font-size: 25px!important;
+    }
+    .swiper-button-prev{
+        left:-5px!important;
+    }
+    .swiper-button-next{
+        right:-5px!important;
+    }
+}

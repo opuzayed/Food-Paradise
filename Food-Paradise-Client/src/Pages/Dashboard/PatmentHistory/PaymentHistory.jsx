@@ -3,6 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 
 const PaymentHistory = () => {
@@ -18,17 +19,17 @@ const PaymentHistory = () => {
     });
 
     return (
-        <div className="p-4 md:p-8 lg:p-12 xl:p-16">
+        <div className="px-4">
       <SectionTitle heading={"Payment History"} subHeading={"At a Glance"} />
       <h2 className="text-3xl font-medium mb-6">Total Payments : {payments.length} </h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+      <div className="overflow-x-auto w-500px lg:w-full rounded-lg shadow-border">
+        <table className="min-w-full bg-white rounded-lg shadow-border w-full">
           {/* Head */}
-          <thead className="bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white border-b border-gray-300">
+          <thead className=" text-black border-b border-gray-200">
             <tr>
               <th className="p-4 text-center font-semibold">#</th>
               <th className="p-4 text-center font-semibold">EMAIL</th>
-              <th className="p-4 text-center font-semibold">TOTAL PRICE</th>
+              <th className="p-4 text-center font-semibold text-nowrap">TOTAL PRICE</th>
               <th className="p-4 text-center font-semibold">TRANSACTION ID</th>
               <th className="p-4 text-center font-semibold">PAYMENT DATE</th>
               <th className="p-4 text-center font-semibold">STATUS</th>
@@ -38,19 +39,19 @@ const PaymentHistory = () => {
             {payments.map((payment, index) => (
               <tr
                 key={payment._id}
-                className="relative transition-transform duration-300 transform hover:scale-105 hover:shadow-xl hover:bg-gradient-to-r hover:from-gray-100 hover:to-cyan-200"
+                className="relative transition-all duration-300 hover:bg-sky-100 border-b last:border-b-0 border-gray-200"
               >
                 <td className="p-4 text-center text-lg font-semibold">{index + 1}</td>
                 <td className="p-4 text-center text-lg font-semibold">{payment.email}</td>
                 <td className="p-4 text-center text-lg font-semibold">${payment.price.toFixed(2)}</td>
-                <td className="p-4 text-center text-lg font-semibold">${payment.transactionId}</td>
-                <td className="p-4 text-center text-lg font-semibold">{payment.date}</td>
+                <td className="p-4 text-center text-lg font-semibold">{payment.transactionId}</td>
+                <td className="p-4 text-center text-lg font-semibold">{moment(payment.date).format('MMMM Do YYYY, h:mm A')}</td>
                 <td className="p-4 text-center text-lg font-semibold">{payment.status}</td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
+        </div>
     </div>
     );
 };

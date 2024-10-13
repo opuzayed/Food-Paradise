@@ -3,6 +3,7 @@ import useCart from "../../../hooks/useCart";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import CustomButton from "../../../Components/CustomButton/CustomButton";
 
 const Cart = () => {
   const [cart, refetch] = useCart();
@@ -40,16 +41,15 @@ const Cart = () => {
       <div className="flex flex-col lg:flex-row justify-between items-center mb-10">
         <h2 className="text-2xl lg:text-3xl font-semibold text-gray-800">ITEMS: {cart.length}</h2>
         <h2 className="text-2xl lg:text-3xl font-semibold text-gray-800">TOTAL PRICE: ${totalPrice.toFixed(2)}</h2>
-        <Link to="/dashboard/payment">
-          <button className={`btn ${cart.length ? 'btn-primary' : 'btn-primary opacity-50 cursor-not-allowed'}`}>
-            PAY
-          </button>
+        <Link to={`${cart.length > 0 ? '/dashboard/payment' : 'javascript:void(0)'}`}>
+          <CustomButton btnText={'Pay'} classBG={`${cart.length > 0 ? 'bg-blue-500 hover:bg-blue-700' : 'bg-blue-500 opacity-50 cursor-not-allowed'}` }></CustomButton>
         </Link>
       </div>
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+      <div className="overflow-x-auto w-500px lg:w-full rounded-lg shadow-border">
+      
+        <table className="min-w-full bg-white border-0 rounded-xl overflow-hidden shadow-border">
           {/* Head */}
-          <thead className="bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white border-b border-gray-300">
+          <thead className="text-black border-b border-gray-200">
             <tr>
               <th className="p-4 text-center font-semibold">#</th>
               <th className="p-4 text-center font-semibold">IMAGE</th>
@@ -61,7 +61,7 @@ const Cart = () => {
           <tbody className="text-gray-800">
             {
               cart.map((item, index) => (
-                <tr key={item._id} className="transition-transform duration-300 transform hover:scale-105 hover:shadow-xl hover:bg-cyan-200">
+                <tr key={item._id} className="transition-all duration-300 hover:bg-sky-100 border-b last:border-b-0 border-gray-200">
                   <td className="p-4 text-center text-lg font-semibold">{index + 1}</td>
                   <td className="p-4 text-center">
                     <div className="flex justify-center items-center gap-3">
@@ -70,7 +70,7 @@ const Cart = () => {
                           <img
                             src={item.image}
                             alt={item.name}
-                            className="object-cover w-full h-full rounded"
+                            className="object-cover w-full h-full rounded shadow-small-img"
                           />
                         </div>
                       </div>
@@ -88,7 +88,8 @@ const Cart = () => {
             }
           </tbody>
         </table>
-      </div>
+        </div>
+      
     </div>
   );
 };

@@ -3,7 +3,14 @@
     height: 500px; 
     object-fit: cover; 
 }
+
 .custom-carousel .thumb {
     width: 5%;
     height: 50px;
+}
+
+@media screen and (max-width:768px){
+    .custom-carousel img{
+        height:200px
+    }
 }

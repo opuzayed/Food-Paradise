@@ -9,6 +9,7 @@ import img6 from '../../../assets/home/06.png';
 import './Banner.css';
 const Banner = () => {
     return (
+        <div className="pt-[65px]">
         <Carousel className="mb-20 text-center custom-carousel">
             <div>
                 <img src={img5} alt="image1"/>
@@ -29,6 +30,7 @@ const Banner = () => {
                 <img src={img3} alt="image6"/>
             </div>
         </Carousel>
+        </div>
     );
 };
 

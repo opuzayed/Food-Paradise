@@ -36,8 +36,9 @@ const Login = () => {
 
     const handleValidateCaptcha = (e) => {
         const user_captcha_value = e.target .value;
+        console.log(user_captcha_value);
        
-        if (validateCaptcha(user_captcha_value)) {
+        if (user_captcha_value.length == 6 && validateCaptcha(user_captcha_value)) {
             setDisabled(false); 
         } else {
             setDisabled(true); 
@@ -49,8 +50,8 @@ const Login = () => {
             <Helmet>
                 <title>Food-Paradise | Login</title>
             </Helmet>
-            <div className="flex items-center justify-center h-screen bg-base-200">
-                <div className="w-full max-w-md bg-base-100 md:shadow-2xl md:shadow-slate-700 rounded-lg">
+            <div className="flex items-center justify-center min-h-screen bg-base-200 py-20 px-4 md:px-0">
+                <div className="w-full max-w-md shadow-2xl rounded-lg py-6 px-4 md:px-8">
                     <div className="text-center">
                         <h1 className="text-3xl font-bold pt-2">Login Here</h1>
                     </div>
@@ -95,7 +96,7 @@ const Login = () => {
                                     placeholder="type captcha above"
                                     className="input input-bordered"
                                     required
-                                    onBlur={handleValidateCaptcha} 
+                                    onKeyUp={handleValidateCaptcha} 
                                 />
                             </div>
 
@@ -104,7 +105,8 @@ const Login = () => {
                                     type="submit"
                                     value="Login"
                                     disabled={disabled}
-                                    className="btn btn-lg bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-700 hover:to-green-700 text-white md:font-extrabold rounded-md w-full cursor-pointer md:text-2xl"
+                                    className="btn bg-green-500 text-white font-bold w-full hover:bg-green-500"
+                                    
                                 />
                             </div>
                             <SocialLogin btnText={"Continue with Google"}></SocialLogin>

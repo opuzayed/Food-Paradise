@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
-
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
@@ -57,38 +56,37 @@ const AllUsers = () => {
     });
   };
   return (
-    <div className="my-10 mx-10">
-      <h2 className="text-5xl font-medium">Total Users : {users.length} </h2>
-
-      <div className="overflow-x-auto mt-10">
-        <table className="table">
+    <div className="my-10 mx-4 sm:mx-6 md:mx-8 lg:mx-10">
+      <h2 className="text-3xl lg:text-5xl font-medium mb-5">Total Users: {users.length} </h2>
+      <div className="overflow-x-auto w-500px lg:w-full rounded-lg shadow-border">
+        <table className="min-w-full bg-white border-0 rounded-xl overflow-hidden shadow-border">
           {/* head */}
-          <thead className="text-black bg-orange-500">
+          <thead className="text-black border-b border-gray-200">
             <tr>
-              <th>#</th>
-              <th>NAME</th>
-              <th>EMAIL</th>
-              <th>ROLE</th>
-              <th>ACTION</th>
+              <th className="p-4 text-center font-semibold">#</th>
+              <th className="p-4 text-center font-semibold">NAME</th>
+              <th className="p-4 text-center font-semibold">EMAIL</th>
+              <th className="p-4 text-center font-semibold">ROLE</th>
+              <th className="p-4 text-center font-semibold">ACTION</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-gray-800">
             {users.map((user, index) => (
-              <tr key={user._id}>
-                <th>{index + 1}</th>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>
+              <tr key={user._id} className="transition-all duration-300 hover:bg-sky-100 border-b last:border-b-0 border-gray-200">
+                <td className="p-4 text-center text-lg font-semibold">{index + 1}</td>
+                <td className="p-4 text-center text-lg font-semibold">{user.name}</td>
+                <td className="p-4 text-center text-lg font-semibold">{user.email}</td>
+                <td className="p-4 text-center text-lg font-semibold">
                   {
                     user.role === 'admin' ? 'Admin' : <button
                     onClick={() => handleMakeAdmin(user)}
-                    className="btn bg-orange-500 btn-lg"
+                    className="btn bg-slate-800 btn-md hover:bg-slate-800"
                   >
                     <FaUsers className="text-white"></FaUsers>
                   </button>
                   }
                 </td>
-                <td>
+                <td className="p-4 text-center text-lg font-semibold">
                   <button
                     onClick={() => handleDelete(user)}
                     className="btn btn-ghost btn-lg text-red-500"

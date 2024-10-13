@@ -1,7 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import { Autoplay,Pagination,EffectCoverflow } from 'swiper/modules';
 import slide1 from '../../../assets/home/slide1.jpg';
 import slide2 from '../../../assets/home/slide2.jpg';
 import slide3 from '../../../assets/home/slide3.jpg';
@@ -17,13 +18,39 @@ const Category = () => {
         <>
         <SectionTitle subHeading={'From 12:00 pm to 11:00 pm'} heading={'Order Online'}></SectionTitle>
             <Swiper
-                slidesPerView={4}
-                spaceBetween={30}
-                centeredSlides={true}
+            effect={'coverflow'}
+                slidesPerView={5}
+                spaceBetween={20}
+                centeredSlides={false}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                  }}
+                  breakpoints={{
+                   0: {
+                      slidesPerView: 2,
+                      spaceBetween: 20,
+                    },
+                    768: {
+                      slidesPerView: 3,
+                      spaceBetween: 20,
+                    },
+                    1024: {
+                      slidesPerView: 5,
+                      spaceBetween: 20,
+                    },
+                  }}
+                coverflowEffect={{
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 0,
+                    modifier: 1,
+                    slideShadows: false,
+                  }}
                 pagination={{
                     clickable: true,
                 }}
-                modules={[Pagination]}
+                modules={[Autoplay,EffectCoverflow, Pagination]}
                 className="mySwiper mb-20"
             >
                 <SwiperSlide>
