@@ -1,6 +1,13 @@
 # Food Paradise
 
+### live link : https://food-paradise-ddfbf.web.app/
+
+check admin role :    
+admin Email : opu1234@outlook.com  
+admin password : 123Aa@
+
 **Food Paradise** is a full-stack food ordering application where users can browse the menu, add items to their cart, and place orders. Admin users can manage the system by accessing the dashboard, adding, updating, and deleting menu items. The project is built using **React**, **TailwindCSS**, **DaisyUI**, **Node.js**, and **MongoDB**.
+
 
 ## Table of Contents
 
